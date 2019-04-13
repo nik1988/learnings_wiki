@@ -1,0 +1,9 @@
+https://github.com/zero-to-mastery/complete-web-developer-manual ---- use full resources
+http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF --  CSS color picker.
+noshit.xyz -- helpfull resources for websites
+
+--------- javascript resources ------------
+
+https://www.w3schools.com/jsref/jsref_obj_array.asp -- javascript array  methods.
+
+https://jsbin.com/?html,output --- Js bin to practice js in conjuction with html.

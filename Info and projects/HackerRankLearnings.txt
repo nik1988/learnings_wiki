@@ -1,0 +1,208 @@
+question: calculating the sum of leading and trailing diagonals for an array:
+
+123
+123
+233
+
+leading diaognal : 1,2,3  trailing diagonal : 3,2,2
+
+identifying no of rows in array = arr.length
+identifying no of columns in aray = arr[0].length
+
+
+apply logic :)
+
+
+
+question : pyramid pattern left
+
+way tp print required spaces :
+
+  System.out.print(String.format("%"+i+"s", "")); 
+
+
+------------------  Usage of sublist in linked list --------------------
+
+we can use sublist option of list in case we need to deal with contiguous part of list in some pattern
+
+example:
+testList.subList(0,2); fromlocation,tolocation.
+
+
+
+-------------- Allways remember length is property of an array not mehtod -------------------
+
+so in case you want to find the length of an array u do example : testArray.length;
+
+
+
+------ Convert 12 hour format date to 24 hour format date--------------------
+
+    /*
+     * Complete the timeConversion function below.
+     */
+    static String timeConversion(String s) throws Exception {
+       
+        SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm:ss");
+       SimpleDateFormat parseFormat = new SimpleDateFormat("hh:mm:ssaa");
+       Date date = parseFormat.parse(s);
+
+            return displayFormat.format(date).toString();
+
+HH -> 0-23
+hh ->12 hour format
+aa reresents AM/PM
+
+
+Input : 07:05:45PM
+Output: 19:05:45
+
+
+
+
+--- Electronic shop problem -------------
+
+
+find max possible spend in by comparing two values in an array:
+
+solution 1 : simply iterate  , complexity : O(n2)
+
+solution 2: sort first array in descending  and second in ascending:
+
+
+therefore if firtarrayelement + secondarrayelement > maxpossibleependiture
+
+then break the second loop as it is ascending all the summation with next elements will obviously be greater.
+
+
+
+------------------ Climbing the leader board problem(Performance Problem)--------------------------
+
+question is give the rank to provided array of scores where rank must be same for same value of scores
+
+calculate the appropriate rank for array of scores provided for Alice from above calculated ranks:
+
+Algorithm Followed:
+
+Step 1: Using hashmap calcuate the rank for all the scores where socres will be the key and rank will 
+be incrementted as the new score is encountered (Sort the array in descending order before putting in map.)
+
+Step 2: Sort the Alice scores in ascending order.
+
+Step 3: Iterate through the alice score and if  rankMap.contains(currentScore) return rankMap.get(currentScore).
+
+Step 4: else 
+ perform Collections.binarySearch on the scoreList and it will return the index of where the current score
+needs to be placed. we will consider the index of item which will be just previous to our current score in actual score
+list and return ran of previous item + 1.
+
+Note: Binary search was used to avoid O(n2) issue other wise multiple iterations where needed. 
+
+ int index = Collections.binarySearch(scoreList,currentScore);
+                
+                    index = Math.abs((index + 1));
+                
+                if (index >= scoreList.size()){
+                    AliceRank.add(1);
+                    continue;
+                }
+                    
+                   
+                    AliceRank.add((rankMap.get(scoreList.get(index))) + 1);
+
+
+
+-------------------- Very Long Factorials ----------------------------------
+
+use BigInteger to calculate a factorial
+
+ BigInteger num = new BigInteger("1");// declare a BigInteger
+ 
+       for(int i =2;i<=n;i++)
+       num = num.multiply(BigInteger.valueOf(i)); // use multiply method of biginteger to multiply.
+
+
+
+
+------------------- Circular Array rotations------------------------------------
+
+
+rotate the given array in right direction with given k rotations.
+
+Algo 1:
+
+Step 1:copy the elements starting from given array.length - k to temp array
+Step 2:move the elemnts starting from  array.length-k-1 till 0 to plus k positions , for example: if we have to rotate the array by 4 then move
+the remaining elements towards right by 4 positions.
+ 
+Step 3:copy the elements from temp array to begining of the given array.
+
+
+
+Algo 2:
+
+Reversal Algorithm:
+
+Step 1: split the array into two parts one will be array from 0 to array'length - k (arra1 )and other(array 2) will be remaining array
+Step 2: reverse both the arrays separately
+step 3: merge both the arrays(array1+array2) and reverse the final array , which will be the output.
+
+---------------
+
+to split the arrays use Arrays.copyOfRange to split the arrays and System.arraycopy to merge the arrays
+
+example:
+
+ int array1[] = Arrays.copyOfRange(a,0,a.length - k); // note: In copyofRange we dont have to do length -1
+    int array2[] =Arrays.copyOfRange(a, a.length - k,a.length );
+
+    int finalArray[] = new int[array1.length + array2.length];
+
+    array1 = Solution.revreseArray(array1);
+    array2 = Solution.revreseArray(array2);
+
+    System.arraycopy(array1,0,finalArray,0,array1.length);  //syntax (sourcearrayname,sourceindex,destn array,destinationIndex,no of items to be copied.)
+									//destination index is index from where elements will start getting placed.
+    System.arraycopy(array2,0,finalArray,array1.length,array2.length);
+
+     return revreseArray(finalArray);
+
+
+
+
+------------------------------ Queens Attack Problem ----------------------------------------------------------------------
+
+You will be given a square chess board with one queen and a number of obstacles placed on it. Determine how many squares the queen can attack.
+
+ 
+In this Queen can  attack in the same row in left and right ,in the same column where it is placed towards top or bottom and can attack all the diagonals from its current position.
+Given the obstacles we need to find total no of possible attacks queen can do in chess board.
+
+Note: In a chess board row increases from bottom to top and column increased from left to right where 1 is lower value and n is the highest value.
+
+Algo:
+
+At first we need to find total possible attacks queen can do in all possible directions.  
+we will have 8 variables which are left,right,top, bottom,top_left,top_right,bottom_left,bottom_right.
+
+
+first 4 directions are simple which is for top no of attacks =  (quenn_row - n), for bottom (queen_row - 1) for left (queen_col - 1) and so on etc.
+
+Now for other 4 cases whcih are diaognals, trick for diagonals is for calculcating the no of squares queen can attack on diaognal on top left that is in between top and left attacks of queens
+it will alllways be Math.min(top,left) ie top_left = Math.min(top,left),similarly we can calculate top_right,bottom_left,bottom_right.
+
+
+Now total no of attacks will be : left + right + top + bottom + top_left + top_right + bottom_left + bottom_right.
+
+Now we need to find the obstructions preseent and the reduce the no of attacks that queen can make on all the given directions to get the final result.
+ 
+for example : if queen is at 4,4 and obstruction is at 4,2  that means queen can make total attaks on left as (4-2) -1 . _1 because we shouldn't consider where obstruction is placed.
+hence we should update the value for left accordingly.
+In similar way we can find obstructions for all given directions and uodate there values then return the final result. 
+
+
+
+
+
+
+

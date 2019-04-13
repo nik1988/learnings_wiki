@@ -1,0 +1,10 @@
+
+ Frame Works like bootstrap need not be installed, one of the ways to consume them in your htm by using there CDN
+links, With CDN links you can simply specify the link for Bootstrap css in your html page in order to cosume it.
+
+
+--------------------- What is CDN--------------------------
+
+CDN is content delivery network used by css/web based to provide content over a dedicated network.
+
+

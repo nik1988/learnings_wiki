@@ -1,0 +1,305 @@
+
+Common stuff we will use while creating css
+
+.class
+
+In css we can group common elemtents in html using class and class help us to style that particular group
+example:
+
+<p class = "web-text"> text1</p>
+<p class = "web-text"> text2 </p> 
+in css file we can have  
+.web-text { color:green;} so it will applt styles to the all the p elements with given class
+
+
+#id : id is same as class but as per rules id should be unique in html, in css id is specified followed by #
+
+element, element : this is used to specify css must be applied to the second element defined inside the first element.
+note: 2nd element can be anywhere defined inside the first element.
+
+element > element: this says css must be applied only to 2nd element if first element is immediate parent of second element.
+
+element + element : It says that css shall olly appplied to second element if it is defined after the first element.
+
+:hover: apllies the css on hover
+
+eg : p :hover { color:blue } //text in paragraph will beome blue on mouse hover.
+
+:last-child: apply the css to the last defined child of the classs
+
+for example if we have 
+
+
+<p class = "web-text"> text1</p>
+<p class = "web-text"> text2 </p> 
+
+then 
+.web-text:last-child { color:blue; } will apply the css only to text2 as text is the last child defined for class webtext.
+note: this will be applicable to all the last-child for different groups of web-text in a html.
+
+
+:first-child : vice versa to last-child
+
+!important : this is not a recommened tag but it is used to change the priority ie 
+
+css generals follows order and applied the style for last defined property , example :
+
+p {color:pink}
+p{color:blue}
+
+in above case paragraph color will be blue because it is the final property defined, although if we use !important then we can change the priority example
+
+p{color:pink !important;}
+
+if we use important here what ever color u define in later part of css , pink will be preffered, it is not recommended because it disturbs the general flow of css.
+
+
+----------------------- rgba() tag for color -------------------------------
+
+we can specify color in various ways by using hex or by using rgb value.
+in case if we want to specify opacity for color we need to use rgba method, opacity is defined from 0 to 1 , 0 being completely fade and 1 being opaque.
+
+if we want to fade our color to a certain extent to make it look good we can use rgba()
+
+example : background: rgba(0,0,255,0.2);
+
+
+
+------------ Common text and fonts used in css ----------------------------------
+
+text-decocration: unserline;/text-decocration: line-through; -- for strike through effect
+
+text-transform:uppercase/lowercase ---  for specifying text as lower or upper case
+
+line-height : 20px (as per requirement) for space between lines 
+
+font-style:italic;
+
+font-weight:bold;
+
+font-size : 80%
+
+font-family : used to specify the font type example font-family: "Times New Roman",Georgia note: if we have space in font type then we muct enclose it with quotation marks.
+
+also in many places we see font type being defined as
+
+font-family:"Times New Roman",Georgia --- It means that if client computer doesnot have times new roman font type then use Georgia.
+
+
+
+
+-------------- How to provide custom font in your web page / google fonts / make sure text is printed as u want to even system doesnt have that font----------------------------------------
+
+
+we can actually peovide the source of font in our webpage so that text is allways printed in a way we like, one of the things that we can use for this is "google fonts", google fonts has range of fonts which can be included 
+in our web page we can visit google font website and include the desired font as shown in below example:
+
+<html>
+	<head>
+             <link href = "https://fonts.googleaapis.com/css?family=Poiret+One" rel = stylesheet ">  <!-- include the link for font
+</head>
+
+Ofourse in css we need to describe the font-family
+example 
+
+p {
+font-family:'Poiret One'  // all this information on what font family to describe and all , you can get when u select particular font in google fonts
+}
+
+
+------------------------------ FLoating images to left or right and clearing the float settings --------------------------------------------
+
+some times in our website we want to display the image and show the text wrapped around it to describe the to do this we can include the image with img tag as usual and css we can do something like
+
+img{
+float:left // this will cause the image to move to left and text will wrapped around it on the right of it, same way we can do for left
+}
+
+html example:
+
+<section>
+<h2> about </h2>
+.<img src = "" height = "" weight = "" >
+<p> ---  text describing image </p>
+</section>
+<footer> Website made with love </footer>
+
+
+---------------------------------------------- usage of clear:both / it is recommended to use this after using float-----------------------------------------
+
+although there is one catch suppose in above we want to show footer as described in above example,what happens is once we have used float:left upoming tag will also use the same setting and align the footer to left , even if we give some other
+style this setting will override it.
+
+In order to fix it we must do 
+
+footer{
+   clear:both;  // clear the default setting created by floiw
+    text-align:center;		
+}
+
+
+
+-------------------------------- Padding and margin in css ------------------------------------------
+
+
+What is padding 
+
+lets say we have defined html code like
+<div class = "boxmodel">A</div>
+<div class = "boxmodel">B</div>
+<div class = "boxmodel">C</div>
+ 
+when we have style like
+
+.boxmodel{
+border: 5px solid red;
+display:inline-block; // to have A B and C in single line
+
+}
+
+ 
+what will happen we see A,Band C where each character would be squezzed inside a single box , what if we want bpx to be bigger so that area around A, B and C within a box have some space
+we can use padding , padding helps to create imporve space of defined content in Html within the BOX.
+
+example we can have something like padding:20px; refer example padding_example.html
+
+
+padding means give the space between the content metioned in HTML and the style defined for the content.Basically it is used to create space inside of the border.
+
+if we want to specify the padding for top,bottom,left and right we can so
+
+padding: 5px 20px 5 px 20px; //order is top right bottom left this is the standard order followed in css.
+
+ 
+
+-------------------- Margin in css--------------------------------
+
+margin is used to specify space outside of the border 
+
+margin: 0px 20px 0px 20px;
+
+above says give the margin of 0 px from top, 20ox from right 0px from bottom 20px from left
+
+there is short way to denoting above we can simply say
+margin:0px 20px // it means 0 and 20 for topa and bottom/left and right.
+
+
+we can see our padding and margin defined in box model in developer tools.
+
+
+--------------------- em vs px in css for font size -------------------------
+
+usually we describe the size of a font using px or by using % symbol
+
+example : font-size:20px;
+
+although there is one more cool way to describe the size altough applicable in specific cases
+
+suppose we gave paragraph like:
+
+<p> Nikhil is writing the test html </p>
+
+we have requirement where we want to display nikhil in size greater than current text we can use em
+
+<p <span style = "font-size = 2em;">Nikhil</span> is writing.... </p
+
+in above code 2em means diplay size of Nikhil twice the size of current font size of text in paragraph.
+This is cool because size of Nikhil will change relative to the size of font in paragraph and easier to comprehend.
+
+
+--------------------- Usage of Flexbox in Css ----------------------------------------
+
+Flexbox is basically used to alogn images in UI in simpler and responsiv way, it is easier to use and preferred for proper space utilizaion and alignemnt.
+With normal css it can be tedious to align images because of overflow, sreen size etc , flexbox code implicitly deals with all these.
+
+It is preffered to align images in a single dimension.
+
+in order to use felxbox we must include all the images inside a container , may be css class cotainer
+and 
+to activate a flexbox we must do . // see example 
+		
+	.container {
+			display:flex; // activates the flex box
+		}
+
+we can quickly refer learn flexbox from "https://css-tricks.com/snippets/css/a-guide-to-flexbox/" and play this to http://flexboxfroggy.com/ to practice it.
+
+
+flexbox cheat sheet : https://darekkay.com/dev/flexbox-cheatsheet.html
+
+
+--------------------- Transition and Transform property in css 3 ------------------------
+
+Transition and transform are one of the coolest feature added in css 3. when we define a transition property for certain image it says that transition from one style to another given style in given time which gives
+smooth transition effect to the user.
+
+example
+
+img{
+
+trasition: all 1s; // it says that transit to all the styles in time span of 1 sec
+}
+
+transform : is used to Rotate, skew, and scale the image , mostly transform and transition are used to give effects, for example u want image to get slightly bigger when user hovers over it.
+
+img :hover{
+	transform: scale(1.1); // scale the image to bigger on hover and since the transition is set above it will happen in span of 1 sec.
+}
+different values for transform are scale,rotate,translate,skew
+
+u can find more information about these in : https://thoughtbot.com/blog/transitions-and-transforms
+
+
+-------------- Setting the background image in css -----------------------------------
+
+for setting a background image we can use either of 2 tags for body:
+
+background-image:url("");
+background:url("") no-repeat;
+
+when we use any of the above tags we might notice image to be repeating in larger screen , 
+to avoid that we must do : background-size:100%;
+
+in case we use background:url("") no-repeat; then also we must give background-size:100%; other wise we might find image not covering entire screen for larger screens.
+
+
+
+---------------- height property in css and new unit vh(viewport height) -----------------------------------
+
+we can specify the height to be occupied by certain div by giving height property, 
+
+			so if we give height:500px; // div will occupy the 500px in height
+
+
+although there is disadvantage in specifying height as pixel i.e. even if we try to reduce the size of screen div will continue to occupy 500px making the UI non responsive.
+that is why new unit vh was introduced
+
+-- vh says that ocuppy given percent of current viewport and if the size of viewport changes hieght is adjusted accordingly
+
+			example: height:50vh // says that occupy 50 percent of current view port screen.
+
+
+
+
+----------------- reducing the size of an image inside a border or in a box---------------------------------
+
+suppose we want an image inside a box width black background something lik which is inside a grid container
+
+.black{
+	border:solid 1px grey;
+	background:black;
+	margin:20px
+	padding:100px // to limit the image under the padding of 100px;
+}
+
+.black > img{ // means img tag whose immediate parent is .black
+    width:100%; // means 100percent of area left after padding in black box, by default width of image wont be contained inside box;
+}
+
+
+if we simply place the image inside a black container image will overflow the container so how do we make the image to be contained inisde the box to limit the area.
+
+we can limit the area occupied by image by providing padding to the box , we know padding reduces the size within the border, and hence if we provide the padding image will remain to the
+area left after padding.
+
+

@@ -1,0 +1,37 @@
+After creating a nav-bar we have requirement to create a body for the webpage we already have div class = "zone red" to specify the body and it should have body!!! text at the center and should
+be responsive.
+
+
+1. we must enclose a new class to speify the style for the body, if we simply specify like 
+
+<div class = "zone red"> <p> body!!! </p> </div>
+
+div will cover the default width and height and entire column span but we want body to cover the 50% of page. lets define a css for this, we will enclose the new css class page-body
+
+example <div class = "zone red page-body"> ...
+
+.page-body{
+	
+	display:flex; 
+	justify-content:center;
+	align-item: center;
+	height: 50vh; // height will determine the height of body vh is new unit for responsiveness as explained below
+}
+
+
+
+1. we are using flex because we want items in the body to be in center; imp point: difference betweeen justify-content and align-item,
+
+justify-content pushes the items to the center of the screen but doesnot really position the items to the center for that we must use align-item whih will position the item to the center of the screen.
+
+2.we know that height is used to specify the height that would be occupied by div , we can specify height as 
+
+				height:500px;
+
+although disadvantage here is we are specifying pixels again , so when we reduce the size of screen size of body wont adjust according to screen size , there fore new unit for specifying
+size is introduced "vh" 
+     
+		example : height:50vh; // means occupy 50% of view port height;
+
+vh means viewportheight and as the size of viewport changes height is adjusted accordingly , so after specifyting this property with vh we will see body will ajust according to scrren size
+as we increase or decrease it.

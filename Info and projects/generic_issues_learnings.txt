@@ -1,0 +1,135 @@
+
+command to find which process is using the port:
+netstat -aon | findstr 8080
+
+---------- command to kill a process ---
+
+taskkill /F /PID <<process id >>
+
+----- In INtellij we dont see package name as direcotries -----------------
+
+On the navigator on left hand side see for machine/cog item on top uncheck flatten packages and uncheck
+compact empty middle directories.
+
+
+---------- Spring boot not supporting size of file during upload -----------------------
+
+
+we need to override default size of file that spring boot supports for upload.
+
+we can do so by adding below under application.properties
+
+spring.servlet.multipart.max-file-size=30MB
+spring.servlet.multipart.max-request-size=40MB
+
+
+
+----------------- Why do we/What is the need to apply @jsonignore to some of the fields in entity classes--------------------
+
+suppose we have a scenario where we receive json data from frontend or we need to send json response from backend 
+
+but we have some extra fields which we donot want to map to jsonrequest or jsonresponse for example we have some hiberbate
+relationship we mark such fields as @jsonignore so that backend must not expect those fields in data sent from front end
+other wise we might get mapping error.
+
+
+---------- If arrayllist contains a list of objects , if you want to delete a particular object how it will recognize which object to remove when you will call remove method--------------
+
+
+if you are storing custom objects in an array list you need to implement equals method in order for array list to know which object it has to remove.
+
+
+
+----------------  In Hibernate when we are deleting the objectbut  it is not getting deleted from the table , HIbernate is not generating the delete query.--------------------
+
+
+suppose we have added a userpayment table and we want to remove the given user payment from the table for this we would do
+
+userPaymentService.removeById(userPayment.getId());which in turn would call remove method present in UserPaymentRepository class
+
+although it is not deleting the given payament object/data from database.
+
+Reason
+
+UserPayment has parent entity called as User , and we have one to many relationship i.e one user can have many UserPayments for this we hve defined the relatinship as
+
+@OneToMany(mappedBy = "user", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+@JsonIgnore
+private List <UserPayment> userPaymentList = new ArrayList<>();
+
+inside user entity clasess
+
+what happens is 
+when we give fetch type as eager hibernate looks if the objet being deleted is being used by parent for example if the object is present inside the list defined in parent 
+entity class, If this is the case then hibernate wont delete the object from database without any error or warnings
+
+Fix:
+
+We can fix this two ways 
+
+1. Either remove the FetchType.Eager
+2. Or First remove the given object from the list in parent entity and then try to remove the object.
+
+First one has worked for me , 2nd approach i need to investigate more.
+
+
+
+
+
+-------------------- In hibernate null is being returned when we try to access object associated with @OneToOne relation ---------------------------
+
+
+
+
+-------------------------- Software/tool to detect performance issue in UI/Backend ------------------------------
+
+we can use Jprofiler tool to detect performance bottle neck at bak end, It lists the exact method call and under which class method is called with time taken to exeute.
+
+It also lists the jars which are taking more number of time to exeute.
+
+
+
+-------------------- What happens/what will be the output when we use entryset to iterate over HashMap ---------------------------------
+
+Lets create one HashMap and iterator over it using iterator retunred by entrySet but not the keySet
+
+         Map<String,Integer> testMap = new HashMap<>();
+
+         testMap.put("Nikhil",30);
+         testMap.put("Rishank",22);
+
+
+        Iterator itr = testMap.entrySet().iterator();
+
+         while(itr.hasNext()){
+             System.out.println(itr.next());
+         }
+
+
+when we iterate over the hasmap and try to print value using itr.next() then output will be key and value both,
+
+Note: We cannot have any method like itr.getKey or something to list the keys, itr returned from any collection will support only its predefined methods 
+
+o/p
+Rishank=22
+Nikhil=31
+
+
+------------------------- Other ways for Iterating over Hash Map -------------------------------
+
+Method 2: 
+Iterator itr = testMap.keySet().iterator();
+
+Method 3:
+
+
+         for(Map.Entry testEntry:testMap.entrySet()){
+
+             System.out.println(testEntry.getKey() + " " + testEntry.getValue());
+
+
+         }
+
+
+
+

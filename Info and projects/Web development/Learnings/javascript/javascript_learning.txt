@@ -1,0 +1,193 @@
+
+---------------- difference between prompt and an alert ---------------------
+
+prompt() -- allows user to provide an input
+
+example : var num = prompt("Enter the number");
+
+
+alert() -- just shows an alert to a user.
+
+example: alert("This is just an alert");
+
+
+------------- converting string to number in javasript ------------------
+
+by default whatever value we receive in var is string we can convert the var to number using Number()
+
+example
+
+var input = prompt("enter a number");
+
+var sum = 10 + Number(input); // converting the input to number type.
+
+
+-------------------- different ways to create a funtion in javascript -----------------------
+
+There are two ways to create a function:
+
+1. normal way: function functionName() { // function code }
+2. function as an expression as shown below :
+
+	var test = function(){
+		
+				// function code 
+			}
+
+this is also called as an anonymous function , what is the use for this way we will see later.
+
+
+---------- just for info undefined type in java script --------------------
+
+when we execute something in javascript console we often see undefined as a result, what is this undefined
+
+-- undefined is one of the types in javascript and if our block of code/operations does not return anything it will return as 
+undefined by default. 
+
+For example:
+
+if we go to console and execute something like :
+
+ function testfunction(){
+
+5*4;
+}
+
+testfunction(); // call the method
+ 
+response in the console would be "undefined", but if we return something from this function for example
+
+function testFunction() { return 5 *4; }
+testFunction(); // now the output will be 20.
+
+
+-------------- Arrays in Java Script -------------------------------
+
+
+we can create an array in java script using : 
+
+var test = ["test1","test2","test3"];
+
+we can create array of arrays using : animalTypeList =  [ [dog,cat], [elephant,zirrafee], [whale,dolphin], [Tiger,Lion]);
+
+and we cam acess each array witin an array using :
+
+animalTypeList[1,1] -- will print zirrafee (2nd element of second array)
+and so on,
+
+
+common method used in array:
+
+ --- push( << items to push >> ) : animalTypeList.push(["snake","mongoose"]);
+
+if we push multiple items using push like animalTypeList.push("test1","test2") ,two separate arrays "test1" and "test2" will be added
+to animalTypeList array,where animalTypeList is array of array.
+
+--- concat( << items to add in array >>) : concat add the elements at the end of an array and returns a new array.
+
+
+note: concat appends items to the array and return a new array so the o/p of comcat must be assigned to new array other wise 
+it will end up creating new array and we wont be able to use it.
+
+one more point if we are trying to add multiple items using concat in array of array, it will add all the items into a single array and
+concat this array to array of arrays and return a new array of arrays.
+
+example: newAnimalList  = animalList.concat("sea_cucumber","transparent_fish");
+
+this will return a new list by after appending the items to current list and without effeting the current list.
+
+
+-- pop() : Removes an item from an end of array.
+
+-- shift() : shifts all elements by one position towards right. 
+example: list  = ["tiger","cat","beer","bird"];
+
+list.shift(): will return string tiger , now items present in the list will be ["cat","beer","bird"];
+
+
+
+--------------------------- Obects in Java Script -------------------------
+
+objects is one of the types in java script.
+
+Note: other types in java script are string,number,boolean,null, undefined
+
+---- creating an object
+
+we can create object as below example:
+	
+	var student = {
+			 name:"Nik", // note that for strings u need to provide " " other wise you will get error unidentified identifier.
+			 age:31,     // properties should be terminated by  << , >> not by << ; >>
+			 company:"Micro Focus",
+			 spell:["abrakadabra","shazam","boo"],	 // adding array to object;			
+
+			 specialSkill:function(){		// this is how we define method inside a obejct;		
+				alert("He is allways Single");
+			 }
+		    };		
+				
+
+ --  we can acess properties or methods define in object by simply doing user.name, user.age , user.specialSkill(); etc
+ --  we can dynamically add properties to the  object example:
+	
+			student.gender = male; // will add property gender to the object student.
+
+  ---------- dynamically add method to the object ---------------
+	
+	we can add a method dynamically as beklow"
+	
+			student.test = function() {
+							// code here
+						};
+
+	will add the method test to the object student.
+
+---  differnce between the term " method " and " function " , generally function is called a method when it is a part of object.
+
+
+				
+-- we can also create an empty object using eg: var emptyObject = {};
+
+
+
+----------------------- Looping , forEach method in java script------------------- -------------------
+
+rest of the looping concepts are same as java , although for each is little different in java script.
+
+for example:
+
+va todos = ["Clean Room","Exercise","Study Javasript","Eat Food","Sleep"];
+
+now to iterate through this todo list we can use forEach method as 
+
+todos.forEach( 
+
+	function (todo){
+			
+			console.log(todo); // will print the value persent in array "Clean Room","Exercise" etc.
+
+});
+
+if we also want to print the index we can do :
+s
+todos.forEach( function (todo,i) {
+	
+	console.log(todo,i); 
+)}
+		
+	
+
+for each method is considered more readable and was introdued in EcmaScript 5. Otherway of looping include normal for loop.
+
+
+
+
+
+
+ 
+ 
+
+
+
+

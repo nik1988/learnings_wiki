@@ -1,0 +1,69 @@
+
+--------------------- <Strong> over <b> tag and <em> over <i> tag in Html 5 ----------------------------------
+
+previouslly for showing certain words in bold in an Html page we used <b> tag eg <b> bolded word </b> in html code, although now this is not reccomended rather it is better to use <strong> tag to do the same thing.
+
+This was done because of some other platforms like mobile phones , Ipads were unable to recognize <b> tag, therefore to have common semantics across various platforms <strong> is preffered.
+
+Similary <i> was used to italacize the charater but now <em> is preffered.
+
+
+
+------------------ <ol> ordered list vs <ul> unordered list -----------------------------------
+
+In ordered list items are printed in order with sequence number, 
+In unordered list items are printed with dot watermark as prefix 
+
+
+
+------------ Self  closing elemtents in HTML 5 ----------------
+
+we have some self closing elements like <br /> <hr /> , In previous versions of html we needed to give /> at the end for self closing elements, but in HTML 5 we need do it we can give simply 
+<br>, <hr> etc.
+
+
+
+-------------- What is index.html ? --------------------------------------------------
+
+
+In the UI world all the server has file name index.html, Since there can be many html files in a server , server must know which html file it needs to serve first, by the standards by default index.html file is the first file served by the server when the page is requested.
+
+Although we can change this by modifying the default setting in server.
+
+
+------------- Common Form elements in Html 5 ----------------------------------
+
+Most of the form elements are quite same although some need to know about radio button
+
+example:
+Gender:<br>
+<input type = "radio" name = "gender" value = "male">Male <br>
+<input type = "radio" name = "gender" value = "female">Female <br>
+
+
+There are 2 important things to note above:
+
+Male and Female radio button belongs to the same group , in order for the html to know they belong to the same group there name should be same, other wise if you click on one radio but both will get selected.
+
+In order to pass the value correctly when the form is submitted we must specify the value attribute.
+
+
+
+----------------- name attribute in all the elements inside form -------------
+
+It is important to specify the name attribute for the elemtents defined under form so that when we submit the form html 
+can associate/attach the value entered to the name correctly while sending the request.
+
+
+
+
+---------- What is Html 5 -----------------------
+
+Html 5 over html brings over the concept of semantics , where we structure the html pages under mmore descriptive tags like <header>,<footer> etc,
+
+Not sure how these are usefull to web though. 
+
+Although some of the new convenience attributes were added like min, max etc.
+
+
+

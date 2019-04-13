@@ -1,0 +1,183 @@
+css has new feature called as css grid.Back in the days we were using bootstrap to have the responsive grid structure for UI's , but css grid is even better and simpler to implement.
+
+
+flexbox vs css grid
+
+css grid work on 2 dimensions that is row and column where as flex box works only on single dimension rows
+
+
+acticvaing css grid
+
+we can ativate css grid by simplying saying 
+
+{
+display:grid; //activate the css grid.
+
+}
+
+
+---------- common properties in css grid (grid-template-columns) -------------------
+
+most common property that we will see is for grid-template-columns
+
+
+grid-template-columns basically divide the ui in column grids of specified sizes which are responsive in nature for exampl
+
+it is allways better to wrap everyting in under single div and the apply grid in our case we will wrap all the images under <div class = "container">
+
+example:
+
+.container{
+
+	display:grid;
+	grid-template-column:1fr 1fr 1fr 2fr; // make sure not to use commas.
+	grid-gap:20px; // used to specify gap between the images.
+}
+
+explaination:
+
+in grid-template-column above we see 1fr 1fr 1fr 2fr; it specifies the no of columns we need and size of each column , here we need 4 columns, this will automatically divide the UI grid in 4 columns
+
+talking about the size:
+
+we can give size in pixels but disadvantage with pixels is they vary across screen sizes and may disturb the size of columns as screen size vary.
+
+other option is to use percentages for example if we want four columns of equal size we would give grid-template-column:25% 25% 25% 25% , but then this may not vary across screen size but we will have to consider 
+grid-gap and all as colum size + gap will over shoot 100% and we will see scroll bar for UI which we dont want.
+
+therefore, best option would be use fr , fr means fraction of screen size and automatially distributes the equal amount of size across columns as per the size available for the screen. thus we will have responsive
+distribution of size equally across all the screens.
+Also it is easier to understand the size of columns, suppose if we want to have 2 columns where we want one coluns to be double the column of other we can have simply:
+
+grid-template-column: 1fr 2fr; /* it says 2 columns where later one is double the size of first one */
+
+for exmaple you can see css-grid UI in examples folder.
+
+
+------------- grid-template-row -------------------------
+
+like grid-template-column we have grid-template-row where we can control the width of the row.
+example:
+
+grid-template-row: 1fr 2fr;
+
+it says the second row should be double the size of first row, note: it when no of items are more then we cannot control the number of rows.therefore as per the css grid rules if after first and second rows are 
+created , then if no of items are more pattern starts to repeat i.e more rows are created by default with 3rd row being 1 fr, 4th row being 2 fr and so on it gets repeated.
+
+
+
+--------- auto property and use of auto in grid-template --------------------------
+
+suppose we have grid-template-column as 1fr 1fr 1fr;
+
+all the rows are having  size of one fraction and in html we have some thing like :
+
+  <div class="zone green">??</div>
+  <div class="zone red">??</div>
+  <div class="zone blue">??</div>
+
+now, if we inrease the number of fox images by 
+  <div class="zone green">????</div> what will happen is since the size of column is 1fr that is width of the column is fixed to 1 fr image of fox will be stacked one after the another vertically.
+
+we want some feature whee if possible size of column to be deided automatically if number of images increase then we can use auto example:
+
+grid-template-column : auto 1fr 1fr
+
+here if we give auto width of coulumn is adjusted automatically to accomadate the images in a single row if possible based on the size of the screen.
+
+note: suppose if number of images are more and width of first column is adjusted automatically , fisrt column will have same width for all other rows as per the laws of grid.
+
+
+------------------------------ Usage of autofill and repeat in grid-template-columns(recommended way to use grid) --------------------------------
+
+one of the most recommended ways to create a grid is as below:
+
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+
+repeat basically tells to repeat the same pattern for every column.
+
+autofill with minmax tells that autofill every columns which can have minimum size of 200px and maximum column size of 1fr. This makes the UI completely responsive
+
+basically for larger screens size of 200px per column based on image will be utilized for maximum space utilization , as soon as size of screen reduces below 200px , grid will 
+aultomatically adjust column to 1fr to accoomadate one picture per row.
+
+
+----------------- Specifying grid for individual items -----------------------------------------
+
+till now we were creating grid for group of items under container , but we can specify the grid for individual item to control it is sizing across grid.
+
+in our example we have group of images each has own defined css class, lets take the image which has css class defined as green:
+
+we can control no of column grids an item can take by  following properties  grid-column-start , grid-column-end , grid-column column 
+.
+
+example:
+
+.green{
+	grid-column-start:1;
+	grid-column-end:4;
+}
+
+above says that for items under class green take the 4 columnn grid space in UI.
+
+shorthand version for specifying above property is: grid-column:1/4; //means the same above
+
+now in above case what happens is items defined under will take space for 4 columns and then other items will be accomadated in the same row.
+
+what if we want the item to span all the columns accross the screen, to that we can do:
+
+					.green{
+						grid-column: 1/-1; // -1 says span till end
+					}
+suppose we dont know the strating point for the grid but we want our image to span across 2 columns we can give:
+					
+					.green{
+						grid-column: span 2;
+					}
+similary we can to the sizing of rows for an individual item using grid-row property
+
+
+
+
+-------------------------------- justify-self and align-self property for individual items ---------------------------------------
+
+
+suppose and item is spanning 4 column grids but we want item only to be displayed in first column grid or last column grid then we can use justify-self
+
+		justify-self: start // says that align the items to starting column grid
+
+similarly we can have end to say align the image at the ending column grid. same way we can align items across rows using align-self property.
+
+
+
+--------------------------------- auto-fill vs auto-fit ----------------------------------------
+
+
+auto-fill tries to create maximum possible columns in the grid but auto-fit adjust the images/items in minimum possible columns for example
+
+if we have 3 items under the grid then auto-fill would make may be 6 columns and put the items in first three colums (this will make the items smaller) but auto-fit would accomadate these items
+in 3 columns only and if items increase to 4 it will try to accomadate in 4 columns responsively.
+
+example grid-template-columsn(auto-fit,minmax(350px, 1fr));
+
+note : minmax is very important function as it tells grid-template-columns that when the size of sreen <= 350px then dont try to auto-fill/fit items rather occupy complete 1fr of screen 
+otherwise size of items will become much smaller if grid tries to adjust multiple items in single column,
+
+here 1fr means make only one columns and occupy the entire fraction of space .
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+

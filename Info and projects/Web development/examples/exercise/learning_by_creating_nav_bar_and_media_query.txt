@@ -1,0 +1,77 @@
+
+
+ While Creating a Nav Bar we must follow a general which will help us to create a responsive bar and this pattern can be used all most everyhere we need to create a nav bar from scratch.
+
+
+ we have green class for green background and zone class for basic stuff like cursor:pointer, border 1px solid , font size etc.Now with this zone class and green we need to create a nav bar
+
+--- First thing to do is to use a nav element of html to create a navigation bar and it should have class of green and zone as our nav bar should be made from these classes.
+
+---- Now whatever items we want to display on nav bar should we wrapped under some class lets say main nav and should be defined as part of unordered list:
+
+example:
+
+
+		<nav class="zone green"> 		
+				<ul class = "main-nav">
+					<li><a href= "">About</a></li>
+					<li><a href = "">Products </a></li>
+					<li><a href = "">OurTeam </a></li>
+					<li class = "item4"><a href = "">Contact</a></li> // will come to this one later.
+				</ul>
+  </nav>
+
+
+---- now in above code there is few things all the items will be in separate rows , we want them to part of single row hence if we appply display:flex; we know that flex arranges items in a single row and in responsive way
+
+---- next we need to remove the default style of unordered list where we have dots with every list item we can give list-style :none in main-nav class.
+
+---- and we must give margin as 0px because we dont need default margin for items causing the increase in width of nav-bar.rest of the properties include font-color etc.
+
+---- now we want spacing between the items, to achieve the spacing best way is to do padding , as we know padding adjusts the items withi the border so if we specify padding for all the elemnts we automatically get the
+spacing between them.
+
+so for li we give li { padding:20px;}
+
+--------- another important point is when we create the nav bar we see a slight margin for the nav bar on left and right both this is inrtrodued by body element which allways have some default margin 
+we can override that as below:
+
+.body{
+	margin: 0px; // override the default margin created by the body.
+}
+
+---- now for the fourth item we want to push that item to the right,allways in nav bars we have requirement where we want certain items to be on the right, we can simply push the item to the left by simply doing
+
+		
+			.item4 {
+				
+					margin-left:auto; //this will automatially push the item to the right most part of the screen.
+				}
+
+---- rest aother css properties include removing default style for anchor and all.
+
+
+
+
+
+-------------------------------- Media Query for even Smaller screens ----------------------------------------------------
+
+
+suppose we want to make our UI responsive for even smaller screen phones like iphone 4s , what happens we notice that with above css if we reduce the size of sreen further items on the right side of the nav bar gets 
+smushed.
+
+we can fix this by specifying css specific to smaller size screen using media query as below:
+
+@media only screen and (max-width:600px){ 
+
+.main-nav{
+	padding:0px;
+	font-size:0.5em;
+}
+
+
+above "only screen" states that media query is applied for screen " and (max-width:600px) states that it should be only applied for screen size not larger than 600px
+
+then we define what css class we need to modify for this screen
+here we remove the padding between the items as size is less
+and also we reduce the font-size to adjust the right on the small screen.

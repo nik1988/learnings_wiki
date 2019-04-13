@@ -1,0 +1,41 @@
+
+--------------- Create an anonymous thread for a block of code in class which is taking more time to execute so that it executes parallely without blocking the main class---------------------
+
+we had line of code in class "FontFactory.registerDirectories()" which was blocking the class for 50 secs in term causing the screen freeze while UI loading
+
+
+in order to solve abobe problem we decided to execute as part of anonymous thread as it may execute parallely while the UI loads
+
+way to create anonymous thread :
+
+
+Runnable runnable = new Runnable (){
+
+public void run(){
+
+// your code to execute parallely
+FontFactory.registerDirectories();
+}
+};
+
+Thread t = new Thread(runnable);
+t.start(); // execute your code as a separate thread;
+
+
+
+
+
+
+
+------------------------- No class def found error / no such method error ...........................................
+
+we were facing issue where we were getting no class def found error although correct jar was present
+
+this error happens in case of 2 scenarios:
+
+1.Either the jar itself is not present.
+2.Different version jars are present in code.
+
+In our code multiple copy of same jar with different versions were present,need to delete the jar with older version to fix the issue.
+
+Search for the class it is throwing error to identify the jar it belongs to then, then check for the jar in lib.

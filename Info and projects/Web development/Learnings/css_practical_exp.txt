@@ -1,0 +1,33 @@
+
+--------------- Creating a background image in css-----------------------------
+
+while creating a background image for web page i was seeing background was scrollable and background-image was not in center.
+
+
+to avoid background image from becoming scrollable we can use display:flex; or d-flex class of bootstrap.
+
+example:
+<html>
+<head> <title></title> </head>
+<body>
+<header class = "startup"></header>
+</body>
+</html>
+
+ --- CSS -----------
+
+header.startup {
+
+  display:flex;	
+  background-image:url();
+  background-position:center; // to position the image from center.	
+
+
+}
+
+
+------------ Fadding colour effect or faded text effect in css --------------
+
+we can give the faded color effect by setting the opacity ib rgba tag
+
+color: rgba(255,255,255,0.8);

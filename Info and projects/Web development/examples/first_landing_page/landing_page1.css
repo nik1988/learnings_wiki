@@ -1,0 +1,70 @@
+
+body,
+html {
+  width: 100%;
+  height: 100%; 
+}
+
+header.startup {
+
+	background-image: url("header.jpg");
+	background-position: center;	
+	background-size: cover;
+	height: 100%; 
+}
+.faded {
+  color: rgba(255, 255, 255, 0.8); 
+}
+
+hr{
+	max-width: 65px;
+	border-width: 3px;
+	border-color: #F05F44; 
+}
+
+header.startup h1{
+	  font-size: 2rem;
+	  margin-top: 20%;
+	  transition: all 1s;
+
+}
+
+header.startup h1:hover{
+	  font-size: 3rem;
+}
+
+header.startup hr {
+
+	margin-top:20%;
+
+}
+
+
+.btn {
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 300px;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.btn-xl {
+  padding: 1rem 2rem; 
+}
+
+
+
+.btn-primary {
+  background-color: #F05F44;
+  border-color: #F05F44; 
+  transition: all 1s;
+
+}
+  
+ .btn-primary:hover {
+  background-color: #ee4b08;
+  border-color: #ee4b08;
+  border-width: 5px;
+  cursor: pointer;
+ 
+}

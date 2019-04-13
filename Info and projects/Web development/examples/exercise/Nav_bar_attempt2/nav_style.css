@@ -1,0 +1,28 @@
+body{
+    margin:0px;
+}
+
+.zone{
+    border: 1px solid;
+    font-size:2em;
+    border-radius:5px;
+    cursor:pointer;
+}
+.green{
+    background:#40B26E;
+}
+.default-nav{
+    display:flex;
+    list-style: none;
+    margin:0px;
+    font-size:0.8em;
+    color:#FFFFF1;
+}
+li{
+    padding:20px;
+}
+.push{
+
+    margin-left:auto;
+
+}

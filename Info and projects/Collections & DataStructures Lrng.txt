@@ -1,0 +1,18 @@
+------------ Finding whether an ArrayList Contains element or not ----------
+
+testList.contains(<< element >>)  -- returns boolean
+
+---- Fetching the index of contained element --------------
+
+
+testList.indexOf(<<element>>);
+
+
+Fact About ArrayList:
+
+In java 7 if you place the duplicate elemtents in an array list it will allways return the same index for all the duplicate
+elements when u perform indexOf.
+
+Although it will consider them in length.
+
+example: if list contains 2 elements 2,2 then index will be returned as 0 but length will be 2.
