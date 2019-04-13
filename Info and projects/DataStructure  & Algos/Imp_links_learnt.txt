@@ -1,0 +1,8 @@
+https://visualgo.net/bn/bst
+
+-----  Git Link For Trie Data Structure Implemenatation in Java ---------------------
+https://github.com/mission-peace/interview/blob/master/src/com/interview/suffixprefix/Trie.java
+
+
+---- Trie data Structure explaination ----------------
+https://www.youtube.com/watch?v=AXjmTQ8LEoI
