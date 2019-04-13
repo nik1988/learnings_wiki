@@ -102,6 +102,11 @@ querSelectorAll return the list of all elements matching the given query.
 
 Note: type of list returned is nodelist,nodelist is different from HtmlCollection returned by geElementsByClassName and getElementsByTagName as HtmlCollection is dynamic and nodeList is static.
 
+dynamic in nature here means suppose we have got the list of elements for having same class and in later point of time we have added one more element with the same class, variable to which we have assigned the list
+will automatially get updated with the new element
+
+but in case of nodeList variable to continue to have the same list which was present at the time code was executed.
+
 
 
 
