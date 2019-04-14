@@ -47,7 +47,7 @@ Same as getElementsBytagName , returns the list of dom elements based on class n
 
 returns the single dom element based on passed id of an HTML dom element.
 
-example:  document.getElementById("<< Id assigned to Html element >>");
+example:  document.getElementById("<< Id assigned to Html element >>"); 
 
 
 
@@ -108,6 +108,74 @@ will automatially get updated with the new element
 but in case of nodeList variable to continue to have the same list which was present at the time code was executed.
 
 
+
+-------------- getAttribute and setAttribute --------------------------------------
+
+we can get the attribute from the dom element using getAttribute and set is using setAttribute, for example if we have
+
+<ul> <li random="23"> NoteBook </li>
+
+we can the value of attribute using document.querySelector("li").getAttribute("random"); // will return 23
+
+atrribute can be anything like width and height of image.
+
+similarly we can set the attribute using: example
+
+document.querySelector("li").setAttribute("random","1000");
+
+we can also set and get the class of an element or any propert we want, although below is the more common way to do so.
+
+
+---------------------- Setting the property for DOM elementts ------------------------------
+
+After receiving the referece the dom elements we can modify or set there property dynamically:
+
+example : document.querySelector("h1").style.background = "yellow";
+
+rather than providing the style here we can also set the name of the class which contains the style example:
+
+var h1 = document.querySelector("h1");
+h1.className = "cool-title"; // where cool-title is the name of the class defined in css.
+
+
+------------- Adding class to the classlist --------------
+
+if our dom element has multiple classes we can add new class as a part of classlist, example
+
+document.querySelector("li").classList -- will print all the css classes associated with li
+
+document.querySelector("li").classList.add("cool-title"); // will add new class "cool-title" to li element
+
+"classList.remove method will remove the class from class list.
+
+
+---------- innerHTML ------------------------
+
+innerHTML is used to change the underlying html code of an element, example
+
+document.querySelector("h1") // will print <h1> Shopping List </h1>
+
+now we can change this html code using innerHTML as  below :
+
+document.querySelector("h1").innerHTML = "<strong> !!!! </strong>"
+
+innerHTML can be dangerous as we can loose initial html for ever if not handeled properly.
+
+ 
+
+-------------- accessing parentElement and children of an element ---------------------------
+
+we can access parentElement by doing .parentElement to the dom reference returned
+
+aslo we can do .children to access children
+ 
+
+
+----------- caching selectors to variables ----------------------------
+
+note: it is important to cache selectors to variables because every time we use document.getELement or document.querySelector browser has to traverse down the dom tree to fecth the element which will use up memory
+
+there fore , it is better to store the referece in variable so that we dont have to execute selectors to reference the same dom element again and again.
 
 
 

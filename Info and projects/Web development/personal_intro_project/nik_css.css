@@ -86,4 +86,5 @@ body{
 }
 .img-bkg:hover{
    transform:scale(1.1);
+   box-shadow: 50px grey;
 }
