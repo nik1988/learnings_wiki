@@ -1,3 +1,10 @@
+----- including css in html -----------------
+
+under head we must mention
+<link rel="stylesheet" href="<<css file path>>">
+
+note: you can only give file name of css in case css is present in same location as your html.
+
 
 Common stuff we will use while creating css
 

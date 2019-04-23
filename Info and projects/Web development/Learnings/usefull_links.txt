@@ -7,3 +7,5 @@ noshit.xyz -- helpfull resources for websites
 https://www.w3schools.com/jsref/jsref_obj_array.asp -- javascript array  methods.
 
 https://jsbin.com/?html,output --- Js bin to practice js in conjuction with html.
+
+https://developer.mozilla.org/en-US/docs/Web/Events -- Link for all the possible events.

@@ -1,48 +1,145 @@
+There are various events assciated with html dom elements through which we can manipulate them on user operation like click, mouseout.mousein etc.
 
----------------- how is html dom represnted and how can we manipulate dom using javascript -----------------------------
+Information about various events associated with various elements can be found in : https://developer.mozilla.org/en-US/docs/Web/Events and also events are categorized as keyboard events , mouse events etc.
 
+we can find all possible events in : https://developer.mozilla.org/en-US/docs/Web/Events
 
-Browser converts the html into dom tree, you can see the respresentation of dom tree in below link:
-
-https://www.w3schools.com/js/js_htmldom.asp
-
-
-this dom model is represeted in javascript as document object, if type document; in js console u will see the entire html,
-
-document object provides set of methods which can be used to manipulate html dom.
-
-example:document.write("helooooo"); will replace the entire dom with text "Heloooo";
-
-similarly if we want to modify body of an html dynamically we can use document.body() method.
+-------- Attaching event to an element in vanilla javascript ---------------------------------
 
 
+let say we have an event we can attach event to a button as below:
+
+var button  = document.getElementsByTagName("button")[0];
+
+button.addEventListener( "click" , function() { 
+
+	console.log("click");
+
+});
 
 
----------------  parent object of all the objects in java script -------------------
-
-parent object for all the objects in java script is "window"
-
-if any of the functions which directly belongs to window we can directly invoke them without reference of window 
-
-for example we invoke alert(); directly, js automatically tries to look for such mehtods in window object therefore
-
-window.alert() is same as alert();
+addEventListener tells that which event we want to listen for a particular element(i.e. register an event) and what function we want to perform on that event.
 
 
+----------------- calling the function rather than defining the function as an argument for addEventListener -------------------------
 
-------------------- Java Script engines used by different browsers -----------------------
+we can do as shown in below example:
 
-every browser has its own js engine to interpret javascript on the client side, these are as below:
-
- --- Chrome has V8 engine. 
- --- FireFox has spider monkey js engine.
- --- Explorer has chakra js engine.
+button.addEventListener("click",addItemOnClick) //notice that we dont use () after function name to make a function call, becuase function being called as a callback function.tee
 
 
+function addItemOnClick() {
+ 	//logic here
+}
 
--- JavaScript provides various selectors for DOM manipulation -- see section selectors for more details.
+if suppose we have to pass event as an argument :
+
+input.addEventListener("keypress",addItemOnEnter); // notice that we dont have to give addItemOnEnter(event), to call a method, but we need to accept an argument during function definition, js automatiacally takes care of passing the
+event to a method.
+ 
+function addItemOnEnter(event) {
+
+ if(event.keyCode == "13")
+.....
+}
+
+
+------------------- creating an html element in javascript and dynamically adding it to the current html ------------------------------------
+
+we can create whatever html element we like dynamically using "document.createElement" method.
+
+
+----------------------------- document.createElement()------------------------ ----------------
+
+Suppose we want to create a list html element "li" in javascript we can do
+
+var listElement = document.createElement("li");
+
+now how do we add content to new list element that we created for that we can use appendChild mehtod 
+
+also suppose we have created an button using create element method and we want to give some text for the button we can do:
+
+var button = document.createElement("button");
+button.innerHTML = "Delete Button" same as <button> Delete Button </button>
+
+
+note that in case of button there is no child node avaiable , so we need to use innerHTML to give some meaning full name
+
+---------------- appendChild() ---------------------------------
+
+With appendChild we can add a child node or a child element to a current html element.
+
+now suppose we want to add a text fot the li element that we created above, so for this if we see a dom tree every every html element node has a child node as text node.
+
+so we can append a text node using document.createTextNode to every element that we create to print the content that we want and attaching the text node using appendChild method
+example:
+
+li.appendChild(document.createTextNode("this is user defined text")); // we can create a text node by using document.createTextNode.
+
+also li should be added as part of some unordered list defined in html ie it must be a part of any of ul element defined in current html, or suposse we are adding dynamically some list item to an existing unordered list based
+on user input.
+
+lets take for simplicity we have only one ul present in html then we can do :
+
+exmaple:
+
+var listElement = document.createElement("li");
+li.appendChild(document.createTextNode("this is user defined text"));
+
+var ul = document.querySelector("ul");
+ul.appendChild(listElement); // adding li node to ul present in static html
+
+
+---------------- removeChild() ------------------------------------------
+
+we can use removeChild() mehtod to remove a child node. we can also use the remove method to do the same thing.
+
+
+--------------------- handling events based on keypress/based on pressing of specific key / "event.which",event.keyCode --------------------------------------------------------------
+
+suppose we want to perform certain operation based on press of "enter" key 
+
+we need to listen to the keypress event and we need to identify which key has been pressed.
+
+every event that we listen to returns an obect of "event", using this event object we can read keycode or which to identify which key has been pressed.
+
+every key that we press in keyboard has keycode associated with it , we can find out the key codes in "https://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes" 
+
+for enter button we have a keyode of 13 we can use this as below:
+
+input.addEventListener("keypress", function (event) { // where input is reference variable for textbox in html which can be ontained from query selectors.
+
+	if(event.keyCode === 13){ // we can use event.which instead of keycode.
+		
+		console.log("enter is pressed");
+	}
+})
 
 
 
+
+------------------------ event.target method / Identfying on which element event is performed  ------------------------------------------
+
+
+when a event is generated for example click,keyperss etc, and event object is passed as an argument to callback function , this event object can be used to identify the element
+on wwhich this event was performed using event.target method.
+
+
+
+------------------------------- toggle class in javascript / making the class on off -------------------------------------------
+
+
+we can do so in js using toggle property example:
+
+	
+	function onClick(event){
+	
+	 var ele = event.target // get the target element whose class we want to toggle
+	 ele.classList.toggle("done"); // toggle the done css class on or of on click event.			
+	
+	}
+
+
+classlist fethes the list of classes applied to an element of which we can specify the class we want to toggle inside toggle property.
 
 

@@ -86,7 +86,7 @@ to animalTypeList array,where animalTypeList is array of array.
 --- concat( << items to add in array >>) : concat add the elements at the end of an array and returns a new array.
 
 
-note: concat appends items to the array and return a new array so the o/p of comcat must be assigned to new array other wise 
+note: concat appends items to the array and return a new array so the o/p of concat must be assigned to new array other wise 
 it will end up creating new array and we wont be able to use it.
 
 one more point if we are trying to add multiple items using concat in array of array, it will add all the items into a single array and
@@ -99,7 +99,7 @@ this will return a new list by after appending the items to current list and wit
 
 -- pop() : Removes an item from an end of array.
 
--- shift() : shifts all elements by one position towards right. 
+-- shift() : shifts all elements by one position towards left.
 example: list  = ["tiger","cat","beer","bird"];
 
 list.shift(): will return string tiger , now items present in the list will be ["cat","beer","bird"];
@@ -135,7 +135,7 @@ we can create object as below example:
 
   ---------- dynamically add method to the object ---------------
 	
-	we can add a method dynamically as beklow"
+	we can add a method dynamically as below"
 	
 			student.test = function() {
 							// code here

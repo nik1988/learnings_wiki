@@ -66,4 +66,12 @@ Not sure how these are usefull to web though.
 Although some of the new convenience attributes were added like min, max etc.
 
 
+------------------ open a link in new tab on click of anchor/ (target) property in anchor----------------------------
+
+If we want to create an anchor tag so that when user clicks on the link page should open in new tab we can do as below:
+
+we can specify target = "_blank" in anchor tag
+example:
+<a href = "some url" target = "_blank"> Click Me </a>
+
 

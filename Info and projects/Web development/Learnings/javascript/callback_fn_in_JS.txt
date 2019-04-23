@@ -1,0 +1,50 @@
+
+ -------------- what are callback function in java script --------------------
+
+we should know that every function in java script is a objet thus we can assign to variable 
+
+example:var fn = function() { //some code }
+
+and we can assign this function variable to any variable we want and use it for example
+
+fn1 = fn; and then we can call the same function as fn1();
+
+
+----- callbacks -------
+
+Callbacks are functions that are executed asynchronously or at later time.Instead of code reading top to
+bottom procedurally, async programs may execute different functions at different times.
+
+----callback functions can be passed as an argument to other functions without () ------------
+
+callback function means function will be called back once the certain tasks has completed.
+
+
+example:
+
+function add(a,b,callback){
+	
+ var sum = a + b;
+ console.log(sum);
+ callback()	 // execute the call back function	
+
+}
+
+function disp() {
+
+console.log("this method is called after sum has completed");
+}
+
+
+add(5,10.disp); //notice here disp is called without ();
+
+callback functions are genearlly used when api acess or http requests are used as they take time to complete and once they fetch data , other related functions must get exeuted to use that data.
+
+
+
+
+
+
+example2:
+
+button.addEventListener("click",somemethod); // here also somemethod is a callback function which is only called when click event is generated.
