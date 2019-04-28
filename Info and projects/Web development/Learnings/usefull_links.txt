@@ -9,3 +9,8 @@ https://www.w3schools.com/jsref/jsref_obj_array.asp -- javascript array  methods
 https://jsbin.com/?html,output --- Js bin to practice js in conjuction with html.
 
 https://developer.mozilla.org/en-US/docs/Web/Events -- Link for all the possible events.
+
+https://www.w3schools.com/css/css3_gradients.asp  -- Information about css linear gradient.
+
+http://youmightnotneedjquery.com/ --- Shows Vanilla js alternatives over jquery code 
+ 

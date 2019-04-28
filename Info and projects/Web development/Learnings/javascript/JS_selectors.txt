@@ -95,6 +95,21 @@ as we can query selector is simpler to write when we have to get the specific el
 we can use both the selectors in conjugation , querySelector is more cleaner variant.
 
 
+
+
+--------------------------- syntax for getting elemets based on multiple properties to capture a specific element in html using query selector ------------------------------------------
+
+
+suppose we have a element like : 
+
+<input type = "color" id = test1 name = "color1" value = "#00ff00"> 
+
+and we want to capture this element by name we dont haave such property in document.getElement memthods
+
+although using querySelector we can do:
+
+document.querySelector('input[name="color1"]'); // in query selectior we can design queries like this to pick up a specific element , here we wanted to check specific attribute inside an element we used [] to query it.
+
 ----------------- querySelectorAll -------------------------------------------------
 
 

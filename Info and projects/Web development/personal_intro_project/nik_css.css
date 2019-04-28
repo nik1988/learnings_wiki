@@ -100,6 +100,7 @@ a > img {
 
 table {
     
+
    margin-left:2rem;
    margin-right:2rem;
     border-collapse: collapse;
@@ -108,7 +109,10 @@ table {
     width:70vw;
   }
 
+
+
   th{
+
     background: #00cccc;
     color: #fff;
     text-transform: uppercase;
@@ -117,6 +121,7 @@ table {
   }
 
  td{
+
     color: #999;
       border: 1px solid #eee;
       padding: 12px 5px;
@@ -124,6 +129,40 @@ table {
       width:20rem;
       font-size:1.2rem;
   } 
+
+
+ /*Support table for mobile screen need to look for better option */ 
+@media (max-width: 900px) {
+    
+table {
+    
+    display:block;
+     margin-left:2rem;
+     margin-right:2rem;
+     border-collapse: collapse;
+     border: 1px solid #eee;
+     border-bottom: 2px solid #00cccc;
+     width:70vw;
+   }
+   
+   th{
+       display:block;
+   }
+ 
+ tr{
+     display:block;
+ }
+ 
+  td{
+    display: inline-block;
+     color: #999;
+       border: 1px solid #eee;
+       padding: 12px 5px;
+       border-collapse: separate;
+        width:18rem; 
+       font-size:0.8rem;
+   } 
+}
   
 
 

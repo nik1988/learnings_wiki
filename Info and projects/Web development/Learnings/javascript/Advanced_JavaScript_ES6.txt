@@ -1,0 +1,206 @@
+
+------------------- Ability to Execute Not Supported JS code in browsers----------------------
+
+New Features are continuously added to java script but not all browsers immediately add support to these 
+
+but we can make our code to use "BABEL" (https://babeljs.io/) which compiles the new version of Js to the version which is supporteed 
+by all the browsers.
+
+not sure how to dynamically use it though
+
+------------------- Introduction to ES5 and ES6 in JavaScript ------------------------------
+
+ -----------------------     let and const in ES6 --------------------------------------
+
+let is introduced in ES6 which is an alternative to var for declaring variable.
+
+example: let i = 10; instead of var i = 10;
+
+let was introduced to make variable declaration and scope to be more in inline with other languages 
+
+here is the differece between let and var:
+
+1. with var multiple declarations for same variable was alllowed, but with let browser will throw an error if variable is declared twice.
+2.Scope of variable is changed when we use let (i.e. variable is scoped acroding to the block)
+
+example: 
+
+ 		if we have 
+		var x=1; 
+
+		for(var x=0;x<10;x++)
+		{
+
+			console.log(x)
+
+		}
+
+		console.log('x =' + x)  //prints 10
+
+here the scope of var is not limited in the block whatever modificatioon done on x inside a block will reflect globally.
+
+
+with let :
+  
+      let x=1; 
+
+	for(let x=0;x<10;x++)
+	{
+
+		console.log(x)
+	
+}
+
+	console.log('x =' + x); //prints 1
+
+
+scope of variables declared wuth let are limited if defined inside a block, which prevents the global modification of variable.
+
+note: although with functions scope of variables declared inside with let and var remains limited to function block.
+
+3. Variable Hoisting is removed as part of let , previously in var even if the variables are declared later and used before the declaration it was allowed, if we declare the variabes with let this is not allowed, 
+
+Variable Hoisiting may lead to state of variable to be in inconsistent state.
+
+
+
+
+------------------------ const in ES6 -----------------------------------
+
+for variables are object that we dont want to get modified by any code we declare them as const.
+
+example:
+
+	const i = 20;
+
+ if we try now i =10;  // error
+
+values must be assigned to variables declared as const other wise we get an error.
+
+
+declaring objects as const:
+
+we can declare objects as const as shown below:
+
+const player = {name:"nik",wizard-level:20};
+
+now if we try to assign some other object to player we will get "iliegal assignment to const object" although we can modify the properties of an object.
+
+ example : player = {}  //Illiegal, will throw an error
+		
+	   player.wizard-level = 25; // allowed
+
+even we can add new properties/method to const object.
+
+
+
+--------------------- Destructuring an object in ES6 ----------------------------------------
+
+suppose we have some object like :
+
+const obj = { name: "nik", age: 31, wizardlevel = 20; };
+
+and we want to assign the value of these properties to some other variables so that implicit property of an object is not disturbed
+normally we would do:
+
+const name = obj.name; // or we can use let instead of const based on our needs
+const age = obj.age;
+		
+	
+this can be done in ES6 in more cleaner way by this way:
+
+let {name,age} = obj; // same as above 2 lines. we can alo use const instead of let.
+
+note: although the name of variables should be same as the name of property defined inside the object. other wise variables will remain undefined.
+
+also:
+
+we want to use assign only third property of an object to an outside variable we can do:
+
+let {wizardlevel} = obj;
+
+so if we have 10 properties in an object we can assign 5 of them to an outside variable by specifying the same name as that of property inside {}.
+
+
+
+----------------- Dynamic Object Prooperties ----------------------------------------
+
+
+In Es6 we can have dynamic object property values
+
+we can specify dynamic property using  [] , example:
+
+const name : 'John Snow';
+
+const obj { [name] : 'testValue',
+	    [1+2] : 'testcalcualtion' // we can have any kind of operation for dynamic property
+	}
+
+if we print the object we will get John snow : testValue ,3:testCalculation
+
+
+--------------- setting objects differently --------------------------
+
+suppose we have variables like:
+ 
+let name = "Nik";
+let age = 31;
+let Desig = "SSE"
+
+we want to store all the above information as obj with same key value pairs normally we would do:
+
+const obj = {name:name,age:age, Desig:Desig}
+
+in ES6 we an simply do : var obj = {name,age,Desig} // equivalent to the code above.
+
+
+
+--------------------- Template Strings in ES6 ---------------------------------------
+
+lets say we have
+
+const name = "Nik";
+const age = 31;
+consr desig = "SSE";
+
+if we have create some text normally we would do :
+
+info  = "Age of" +name+ "is" +age+"and his designation is "+desig;
+
+with template string we can use backtiks and dont have to worry about "" and space 
+
+example using template string we can do :
+
+info = `Age of ${name} is ${age} and his designation is ${desig}`; // much cleaner then info string defined above
+
+
+-------------------- default arguments in JavaScript method--------------------------
+
+We can have default argument in Js method in ES6 as shown below:
+
+function greet(name='',age = 30,pet = 'cat'){
+  // some code using name, age and cat
+}
+
+in above if no arguments are passed function will pick up default value specified in arguments , if arguments are passed default values are ignored.
+
+
+-------------------- Symbols in JS -------------------------
+
+Symbol is one of the types in java script , currently not importannt so i have ignored.
+
+
+--------------- Arrow Fucnction in Java Script -------------------------
+
+noramlly in javascript we define function as 
+
+function add(a,b){
+
+  return a + b;
+}
+
+with ES6 arrow function we can write  
+
+const add2 = (a,b) => a+b;  // it is more readable and less code, arrow by default considers a+b needs to be returned (need to check).
+
+ readability im terms it says add2 is a function which takes a,b as argument and returns a+b , 

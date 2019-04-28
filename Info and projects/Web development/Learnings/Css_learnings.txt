@@ -310,3 +310,17 @@ we can limit the area occupied by image by providing padding to the box , we kno
 area left after padding.
 
 
+-------------------------- Linear Gradient Property in css -------------------------------------------------
+
+
+css 5 provides a cool background property called as liner gradient, linear gradient shows smooth trasition effet from one color to another in background 
+
+example: background: 
+
+body{
+
+background :linear-gradient(to right, red , yellow);  /* Standard syntax */ this will show a tansition from red to yellow towards right.
+
+}
+
+more information can be found on : https://www.w3schools.com/css/css3_gradients.asp
