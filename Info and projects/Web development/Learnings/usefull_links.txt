@@ -13,4 +13,12 @@ https://developer.mozilla.org/en-US/docs/Web/Events -- Link for all the possible
 https://www.w3schools.com/css/css3_gradients.asp  -- Information about css linear gradient.
 
 http://youmightnotneedjquery.com/ --- Shows Vanilla js alternatives over jquery code 
+
+
+
+------------ imp links for javasript learning ------------------------------
+
+1. https://github.com/getify/You-Dont-Know-JS
+2. http://javascript.info/
+3. http://dmitrysoshnikov.com/ecmascript/javascript-the-core-2nd-edition/
  

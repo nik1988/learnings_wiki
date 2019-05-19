@@ -216,7 +216,7 @@ This is cool because size of Nikhil will change relative to the size of font in 
 
 --------------------- Usage of Flexbox in Css ----------------------------------------
 
-Flexbox is basically used to alogn images in UI in simpler and responsiv way, it is easier to use and preferred for proper space utilizaion and alignemnt.
+Flexbox is basically used to align images in UI in simpler and responsive way, it is easier to use and preferred for proper space utilizaion and alignemnt.
 With normal css it can be tedious to align images because of overflow, sreen size etc , flexbox code implicitly deals with all these.
 
 It is preffered to align images in a single dimension.
@@ -324,3 +324,15 @@ background :linear-gradient(to right, red , yellow);  /* Standard syntax */ this
 }
 
 more information can be found on : https://www.w3schools.com/css/css3_gradients.asp
+
+
+
+--------------------- Overflow in css ------------------------------------
+
+overflow controls what happens to the content if it is too big to fit in the area
+
+overflow:hidden -- clips the content which is overflowing from the defined area. // general usefull for images.
+
+overflow:scroll -- add scroll bar for viewing the overflowing content
+
+overflow:visible -- it is by default and content is visible outside the defined area.
