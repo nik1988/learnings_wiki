@@ -1,0 +1,121 @@
+
+
+ --------------- Advanced functions in java script ------------------------------------
+
+ 
+
+----------------- closures in java script -------------------------
+
+
+closures in java script says that child scope will allways have access to the variable references defined in the parent scope.
+
+let see the example below:
+
+const first = () => {
+
+			const greet = "hi";
+			
+			const second = () => { 
+						alert (greet); 
+					}
+			return second;
+		}
+
+
+
+here in above we have parent function first which is defined a varaible greet and it has a inner function second which prints the value of greet using alert and then
+first function returns the second function as a variable;
+
+so if we call first function 
+
+var test = first(); it will be quivalent to  
+
+
+test = () => { 
+		alert (greet); // definition of second  
+	}
+
+as first function returns the second function as variable , function will be assigned to test;
+
+but if we see here in test we are doing alert(greet); but greet is not defined in test.
+
+THEREFORE,as per closure the child function assigned any where will remember the reference defined in its parent function, this is called closures
+
+so if we do test(); it will print an alert message hi.
+ 
+
+
+
+--------------------------- Currying in JavaScript --------------------------------------------------
+
+
+Currying is the process of coverting the function whih takes multiple arguments into a function which takes a single argument.
+
+example :
+
+normal function:
+	
+const multiply = (a,b) => {a * b}; // takes two arguments and multiply them
+
+curried function :
+
+same function can be converted into:
+
+const multiply = (a) => (b) => a * b;
+
+so if we call multiply(5)(5) it will return 25.
+
+explaination:
+
+it is similar to concept defined above, if we look closely
+
+multiply is a function which takes and argument a which returns another function which takes argument and performs operation a * b , as we know as per concept of closures inner function have access to variables of
+parent function.
+
+
+why we need currying:
+
+it makes our code more extensible example:
+
+const multiplyBy5 = multiply(5);
+
+now if we do multiplyBy5(4) it will return 20;
+
+
+
+------------------- compose in java script -----------------------------------
+
+compose is a process of making a function as an input to another function.
+
+let say we have functiom sum like this:
+
+const sum = (num) => num + 1;
+
+now we want to compose sum within a sum
+
+const compose = (f,g) => (a) => f(g(a));
+
+now if we pass compose(sum,sum)(5) it will return 7;
+
+explaination:
+
+from the definition of compose we are saying that compose function takes two arguments f and g which returns another function which takes one argument a and which resuts output of a funiton
+which we have passed as f and takes input as an another function which we have passed in g, where g takes the argument a;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

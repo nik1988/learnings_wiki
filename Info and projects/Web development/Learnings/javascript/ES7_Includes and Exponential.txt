@@ -1,0 +1,53 @@
+
+In ES7 java script two new things were inlcluded 
+
+
+
+--------------includes method for string and arrays --------------------------
+
+
+for a string includes check if string contains given pattern or not and returns true if yes else returns no.
+
+example:
+
+let name = "Nikhil";
+
+name.includes("ikh"); // returns true
+
+
+it is case sensitive there fore if we do 
+
+name.includes("nik") // will return false;
+
+but if we do
+
+name.includes("Nik") // will return true
+
+
+
+----- includes method for an array ---------------------
+
+Same way it can be used to check whether an array contains an element or not
+
+example:
+
+let pets = ['dog','cat','bat'];
+
+
+pets.includes('cat');
+ // retunrs true
+
+
+
+---------------------- exponential(**) operator in ES 7 -----------------------------
+
+** is used to indicate an exponential operator
+
+note: exponential function means to the power of
+ 
+example:
+
+const square = (x) => x ** 2; // means x to the power of 2.
+
+so if we do square(2) will return 4 
+

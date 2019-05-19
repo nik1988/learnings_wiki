@@ -1,0 +1,86 @@
+
+
+---------- map,filter and reduce are most widely used and part of advanced arrays--------------------
+
+
+----------------- map ---------------------------
+
+map is used when we want to iterate through an existing array and perfrom certain operation on elements and create a new array
+
+normally what we would do is use forEach
+
+
+example 
+
+const testArray = [1,2,3];
+
+const newArray = [];
+
+
+testArray.forEach( (num) => {
+
+    num = num + 1;
+    newArray.push(num);
+
+})
+
+With map we just have to do
+
+
+
+newArray = testArray.map(num => num + 1); //note for anonymous funtions if we have ony single argument we dont need ();
+
+//note that we dont even have to create a new array it returns a new array
+
+With map we can achiieve he same thing using single line of code.
+
+-- note that map functions allways retunrns an array , so we must have array at left hand side
+-- if we have logic for multiple line we must allways return a value otherwise value assigned to an array will be of undefined
+
+
+when ever we want to loop through an array and do some operations we must use map.
+
+
+------------------ filter ----------------------------
+
+
+if we want to apply some condition on elements we use filter,
+
+example:
+
+const array = [1,2,10,16];
+
+filteredArray = array.filter(num => num > 5);
+
+
+fitered array will have elements 10 and 16.
+
+
+
+---------------- reduce ------------------------------------
+
+
+reduce reduces the array into a single value , it takes two arguments accumulator and num 
+accumulator stores the value of an operation
+
+
+example:
+
+const array = [1,2,3,4,5];
+
+ler sum = array.reduce((acc,num) => acc + num); //by default value of accumlator is 0;
+
+value of sum will be 15
+
+if we want to provide some default value to accumlator we can do:
+
+let sum = array.reduce((acc,num) => acc + num,5); //acc will start from 5 that is acc = 5 + 1; then acc = 6 + 2  and so on and return the final sum;
+
+value of sum will be 20;
+
+
+
+ 
+
+
+

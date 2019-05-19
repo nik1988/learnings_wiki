@@ -1,0 +1,125 @@
+
+
+------------- Modules and Need for Modules in Java Script -------------------------------------
+
+
+
+Before ES6 there was no concept of modules and there was several problems because of it:
+
+1. In a page there was a possibliy of muliple js files , leading to many script tags , there fore if one script is dependent on another we have to add them in sequece or else the code will break.
+
+2. Second problem was global name space pollution , if there are many global variables defined then there is a possbility for memory leak as well as functionality error if it is modified by some other part of code.
+
+
+
+These problem was solved by introduction of import and export in ES6, this enabled developers to import and export modules with ease without worrying about the sequence of script tags
+
+
+--------- how do we create modules in javascript --------------------------------
+
+the way we create functions are module itself,but we need to make sure all the variables needed in the function should be local to the block
+
+example:
+
+const testFunction = () => {
+
+				let a = 10;
+ 				console.log(a);
+			   }
+
+
+here testFunction is one module and as we see variables we need is defined within the scope of the function , here we have only one global variable testFunction, usage of gloabal variable is reduced to 1.
+
+
+
+
+
+--------------- Importing exporting of modules using browseerify + common.js and ES6 + webpack.js------------------------------------------
+
+
+
+---------- browserify + common.js
+
+common.js syntax is supported by node.js where common.js provided support for import and export of modules where as bwowserify act as a bundler which creates a final bundle.js file.
+
+common.js 
+
+we can export module using module.exports as below:
+
+module.exports = function add(a,b) 
+{ 
+	return a + b; 
+
+}
+
+we can import module using require as below:
+
+var add = require("./add");
+
+
+--------------what is bundler/browserify-------------------------
+
+browserify scans all imports and exports and creates a dependency map based on which it merges all the scripts into single file accordingly called as bundle.js
+
+now advantage for this is server has to manage single file and has to send only single file when the page is requested
+
+also these bndlers scans all the scripts and remove all the unused exports which helps in improvement of performance so that browser doesnot have to parse the code which is actaully not used.
+
+note: bundle.js is seen only in the client side , on the development side we see the scripts as they were before.
+
+
+
+
+--------------- ES6 + webpack2 -------------------------------------
+
+In the normal java script end ES6 has introduced import and export as below:
+
+
+we can simply export a module using export tag:
+
+export const add = (a,b) => { a + b };
+
+// if we have to export only single module from a file
+
+export default function add() {
+		return a + b;
+	}
+
+
+
+---------- importing function in another js file
+
+import {add} from './add';
+or
+import add from './add'  // in case of default function
+
+
+-------webpack2 as a bundler --------------
+
+Same as browserify we have webpack for ES6 which does the bundling ,
+
+as we not lot of ES6 code is still not supported by all the browsers it parses the javascriot files and converts them into code which is supported by all the browsers other than merging all the scripts into single
+bundle.js file.
+
+we can simply configure webpack.js as below , althoough this reuires only one time configuation:
+
+module.exports{
+
+	entry: './app/main.js', // entry point for a webapp
+	output{
+		path: './dist', // location to find final bundle after we build our code
+		filename:'bundle.js' // name of the bundle we want to give.
+	}
+}
+
+	
+
+
+
+
+
+
+
+
+
+

@@ -1,49 +1,61 @@
+
 .table {
     display: flex;
     flex-flow: column nowrap;
-    font-size: .8rem;
-    margin: 0.5rem;
-    line-height: 1.5;
-    border-bottom: 1px solid #d0d0d0;
+    font-size: 1rem;
+    margin:5vw;
+     /* border-bottom: 1px solid #d0d0d0;-height: 1.5rem; */
+    
+    /* text-align:center; */
     flex: 1 1 auto;
+    border-top: 1px solid grey;
+    border-left: 1px solid grey;
+    font-family: 'Pangolin', cursive;
   }
   
   .th {
     display: none;
-    font-weight: 700;
-    background-color: #f2f2f2;
+    
+    text-transform: uppercase;
+    font-size: 1.3rem;
+   
   }
-  
-  .th > .td {
+
+  .tr > .td{
+    border-right:1px solid grey;
+    color:#999;
+  }
+
+  .th > .td  {
+    border-right:1px solid grey;
+
     white-space: normal;
     justify-content: center;
+     background: #00cccc; 
+    color:white; 
   }
   
   .tr {
     width: 100%;
     display: flex;
     flex-flow: row nowrap;
+    
   }
   
-  .tr:nth-of-type(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .tr:nth-of-type(odd) {
-    background-color: #ffffff;
-  }
-  
+
   .td {
     display: flex;
-    flex-flow: row nowrap;
+    justify-content: start;
+    flex-flow: row ;
     flex-grow: 1;
     flex-basis: 0;
     padding: 0.5em;
-    word-break: break-word;
-    overflow: hidden;
-    text-overflow: ellipsis;
+     word-break: break-word; 
+     /* overflow: hidden;  */
+     text-overflow: ellipsis;
     min-width: 0px;
-    white-space: nowrap;
-    border-bottom: 1px solid #d0d0d0;
+    /* white-space: nowrap;  */
+    border-bottom:  1px solid grey;
+    
   }
   

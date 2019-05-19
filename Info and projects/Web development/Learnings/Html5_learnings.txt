@@ -75,3 +75,13 @@ example:
 <a href = "some url" target = "_blank"> Click Me </a>
 
 
+---------------- Including another html page in the current html ---------------------------------
+
+in Html 5 embed tag was introduced to include another html into the current html page
+
+example:
+
+	  <embed type="text/html" style = " width:100vw; height:100vh;" src="./experiment/responsivetable.html">
+
+
+

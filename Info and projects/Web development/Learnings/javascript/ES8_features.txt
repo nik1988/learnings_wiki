@@ -1,0 +1,112 @@
+
+There are few more features in jaca script whih was included in ES8
+
+-------------- String padding -----------------------
+
+two new methods were introduced 
+
+.padStart(<< resultant length>>,<<second string >>); // adds second string to the begining of the first string until the string reaches the resulatant length
+.padEnd(<< number of space >>, <<second string >>); // adds second string to the end of the first string until the string reaches the resulatant length
+
+note : providing second string is optional and if nothing is provided space " " is added.
+
+note : if length provided is already less than the current string nothing happens.
+
+
+the padstart and padend method pads the current string with another string(repeated if needed) so that resulting string reahes the given length.
+
+By default if no other string is provided resultant string will be paded with space.
+
+
+eample 1:
+
+let name = "nikhil".padStart(10); // will add 10 spaces in front of text and store it in name
+
+name will have value as  "         nikhil"; //10 spaced in begining
+
+example 2:
+
+let result = "YO".padStart(4,"YO"); // output will be "YOYO"
+
+result.length //output 4
+
+
+similary we can do padEnd
+
+------------------ suport for trailing commas in function parameter list and calls ----------------
+
+suppose we have a funciton like 
+
+const fun = (a,b,c,d,) => {
+ console.log(a);
+}
+
+
+notice the ending comma perviously javascript interpreter used to throw error if there is trailing comma, this is removed to add more convenience for developer so thar they dont have to 
+worry about adding commas in previos argument when they are adding new one and also in if we se logs in git we will se modification only in 1 line.
+
+
+
+we can call above function as before 
+
+fun(10,20,30) or we can call like fun(10,20,30,);
+
+
+
+
+-------------------- values and entries methods for objects in java script / Iterating objects in Java Script -------------------------
+
+
+Previously we had Object.keys(<< object name >>) method to iterate through the object, for example 
+
+if we have object like:
+
+
+let testObj = {
+
+	name:"nikhil",
+	age:30,
+	company:"micro focus"
+
+}
+
+we can iterate it as
+
+Object.keys(testObj).forEach(key => console.log(key)) //will print all the keys for the object.
+
+if we have to print the key value for an object we must do testObj[key] will print the value for key.
+
+
+-----------------------------IN ES8 Object.values(<< objetname >>) and Object.entries(<< objectname >>) where introduced---------------------
+
+with Object.values method we can iterate through all the values of object keys in sequence 
+ 
+example:
+
+Object.values(testObj).forEach(value => console.log(value))
+
+
+with Object entries method we can iterate through key value pair of an object , Note: each key value pair is represented as an arrays
+
+example:
+
+Object.entries(testObj).forEach(entry => console.log(entry));
+ // here each entry is an array which contains key as first element and value as second.
+output:
+
+ (2) ["name", "nikhil"]
+
+ (2) ["age", 30]
+
+ (2) ["company", "micro focus"]
+
+
+
+
+---------------------------- another big feature introduced in ES8 is async await() which is taken up separately --------------------
+
+
+
+
+
+

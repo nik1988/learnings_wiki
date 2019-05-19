@@ -182,6 +182,34 @@ for each method is considered more readable and was introdued in EcmaScript 5. O
 
 
 
+---------------- trim() method in java script ------------------------
+
+trim() method is used to remove onty trailing and leading spaces from the string.
+
+example
+
+let name = "  nikhil";
+name = name.trim(); // output would be "nikhil"
+
+
+--------------- join() method in java script ----------------------------------------
+
+join method is used to join the elements of an array into the single string.
+
+
+<<user defined array>.join(<< separator >>), // separator is optional
+
+example:
+
+let fruits = ["apple","banana","mango"];
+
+fruits.join() // will return apple,banana,mango
+
+fruits.join(" ") // will retunr apple banana mango
+
+
+
+
 
 
 

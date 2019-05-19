@@ -111,7 +111,7 @@ this can be done in ES6 in more cleaner way by this way:
 
 let {name,age} = obj; // same as above 2 lines. we can alo use const instead of let.
 
-note: although the name of variables should be same as the name of property defined inside the object. other wise variables will remain undefined.
+note: all the name of variables should be same as the name of property defined inside the object. other wise variables will remain undefined.
 
 also:
 
@@ -130,7 +130,7 @@ In Es6 we can have dynamic object property values
 
 we can specify dynamic property using  [] , example:
 
-const name : 'John Snow';
+const name = 'John Snow';
 
 const obj { [name] : 'testValue',
 	    [1+2] : 'testcalcualtion' // we can have any kind of operation for dynamic property
@@ -149,7 +149,7 @@ let Desig = "SSE"
 
 we want to store all the above information as obj with same key value pairs normally we would do:
 
-const obj = {name:name,age:age, Desig:Desig}
+const obj = {name:name,age:age, Desig:Desig}  // note that for assigning values in js object we use ' : ' 
 
 in ES6 we an simply do : var obj = {name,age,Desig} // equivalent to the code above.
 

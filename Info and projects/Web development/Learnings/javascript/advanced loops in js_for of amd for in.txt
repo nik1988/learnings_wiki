@@ -1,0 +1,73 @@
+
+
+---------------------Differnce between the terms iterable and enumerable in java script -------------------------
+
+
+arrays are called iterable and objects are called as enumerable in java script.
+
+
+
+------------------- for of and for in for looping in java script -------------------------------
+
+There are two other ways for looping in java script
+
+
+for -of:
+
+we can use for of for arrays
+
+suppose we have an array like 
+
+let fruits = ["apple","banana","grapes"];
+
+
+	for(fruit of fruits)
+		{ 
+			console.log(fruit)
+
+		}
+
+
+for in:
+
+we can use for in to iterate through object keys:
+
+suppose we have 
+
+let student = {name: "Nikhil", age: 30, nature: "simple"}
+;
+
+			
+		for(property in student) 
+			{ 
+			console.log(property) //will print the properties(keys) of an object.
+
+ 
+			}
+o/p
+name
+age
+nature
+
+
+Note: we can use for in for iterating arrays because underlying array is represented as object in javascript 
+
+example:
+
+fruit{
+	0:"apple",
+	1:"banana",
+	2:"grapes"
+}
+
+so if we do 
+
+for(fruit in fruits){ consle.log (fruit) }
+
+// output would be
+0
+1
+2
+
+
+
