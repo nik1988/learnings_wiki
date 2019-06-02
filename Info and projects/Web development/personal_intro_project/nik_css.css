@@ -55,8 +55,10 @@ body{
     height:40vh;
 }
 
-.intro_container > p {
+.intro_container > ul {
     margin:15px;
+    letter-spacing: 0.1em;
+    font-size:1.5em;
 }
 .company_plate {
     display: grid;
@@ -99,30 +101,49 @@ a > img {
 
 .tech_container{
     
+  
 }
 .tech_stack{
+
+     display:grid;
     margin-top:10px;
-    display:grid;
     grid-template-rows:200px;
     border: 2px solid grey;
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr))
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+
 
 }
 
 .tech-img-bkg{
 
     border: 1px solid grey;
-    background-color:rgba(14,15,12,0.6);
+   /* background-color:rgba(14,15,12,0.6);*/
     margin:20px;
-     padding:20px;
+     padding:4%;
      align:center;
+
+
 }
 
-a > img {   
-    width:100%;
-     max-height:15vh; 
-    /* text-align:center; */
+.tech-img-bkg :hover{
+
+  transform:scale(1.2);
+
+
 }
+
+.tech-img-bkg > img {  
+    
+     height:auto; 
+   width:100%;
+    max-height:14vh;
+ text-align:center;
+ transition:all 1s;
+
+}
+
+
+
 
  /*Support table for mobile screen need to look for better option */ 
 /* @media (max-width: 900px) {

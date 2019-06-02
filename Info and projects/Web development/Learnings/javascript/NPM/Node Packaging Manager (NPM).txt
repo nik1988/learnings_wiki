@@ -1,0 +1,38 @@
+
+----------- What is NPM ---------------------
+
+Npm is used to manage dependecies for JavaScript based project, 
+
+It was created for Java Script developers to be able to share code.
+
+-------------- NPM deals with package.json file -------------------
+
+
+How does NPM Works
+
+--------- All the java script packages are managed my NPM registry
+----- Any body can submit js packages to NPM and it consists of
+			
+		-- js file
+		-- package.json file
+package.json file is a meta file that contains information about javascript module/package
+
+------------ NPM pakages can be java script package or a node package -----------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+

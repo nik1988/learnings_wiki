@@ -1,0 +1,24 @@
+
+----- we need to install node.js which comes with NPM
+
+for all the current features to work:
+
+-- npm version should be higher than 5.5.1
+-- node version should be higher than 8.9.1
+
+after installing node.js we can check the version using npm -v and node -v
+
+and if these versions are lower we can run : npm install npm@latest -g
+
+
+
+---------------- Setting UP NPM when we start a project --------------------------------------
+
+when we start a projet we go to the pproject folder in command line and we run
+
+			" npm init "
+
+as soon as we run npm init in our project folder it will ask few questions about description, version, name etc
+and then it will create a package.json file.
+
+

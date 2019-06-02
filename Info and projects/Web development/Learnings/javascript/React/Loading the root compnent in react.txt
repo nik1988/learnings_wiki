@@ -1,0 +1,28 @@
+
+
+----------- Rendering the Components in React App --------------------------------
+
+
+we know that the root file in any webapp is index.html and index.js by default
+
+
+in react app bu default under index.js we will find
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+here is App is the App.js file defined in react
+
+ReactDom.render states that place the app component file under html element which have id as root
+
+In index.html we have
+
+<div id="root"></div> // ReactDom.render will place the app component under this div in html
+
+
+
+
+
+
+
+
+

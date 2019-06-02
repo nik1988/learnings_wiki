@@ -216,7 +216,7 @@ This is cool because size of Nikhil will change relative to the size of font in 
 
 --------------------- Usage of Flexbox in Css ----------------------------------------
 
-Flexbox is basically used to align images in UI in simpler and responsive way, it is easier to use and preferred for proper space utilizaion and alignemnt.
+Flexbox is basically used to alogn images in UI in simpler and responsiv way, it is easier to use and preferred for proper space utilizaion and alignemnt.
 With normal css it can be tedious to align images because of overflow, sreen size etc , flexbox code implicitly deals with all these.
 
 It is preffered to align images in a single dimension.
@@ -336,3 +336,41 @@ overflow:hidden -- clips the content which is overflowing from the defined area.
 overflow:scroll -- add scroll bar for viewing the overflowing content
 
 overflow:visible -- it is by default and content is visible outside the defined area.
+
+
+
+
+
+---------------------- Difference between display:inline and display: inline-block and display:block--------------------------------------------------------------------
+
+display: inline : if we give style display:inline in container div then all the elemtents inside the div will be in same line, but it doesnt allow us to modify the height and width of the 
+elements.
+
+display:inline-block: display-inline block allows us to control the height and width of the containing elements as well. 
+
+by default for example we give
+
+<div style = "bgcolor:green;"> .. </div> , the green color will span entire row
+
+but if we want the color to span only across the area occupied the containing element(i.e span the height and width if the containing element) suppose we want to make a card with green color:
+
+then we would give display:inline-block as below:
+
+
+			<div style = "bgcolor:green; display:inline-block;"> .. </div>
+
+
+
+if we give display:inline in above case then we wil not see any color because inline div doesnot take any space becuase it doesnt allow you to set width and height and since is not block so style will not span 
+to new line.
+
+
+display:block: it is the default setting for display , each element inside div will be in new line
+
+
+
+
+
+
+
+

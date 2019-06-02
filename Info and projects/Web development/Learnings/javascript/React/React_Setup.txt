@@ -1,0 +1,63 @@
+
+ we can use the tool "create-react-app" to have the initial setup for the react project which will
+ contain all the rquired files such as 
+-babel
+-WebPack
+-Lint and Debug
+
+we can install it using npm install -g create-react-app from command line 
+
+
+once we have installed the react app , we must go to location for our project and do
+
+create-react-app robofriends in cmd and it will create a robo-friends folder with all the necessary dependencies, 
+
+
+Now if we go to the package.json file for the react app we see below under dependencies
+
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+
+
+by running npm start we can run the react app
+
+eject is used when we dont want to use scripts defined under react-scripts but want to have custom scripts.
+
+
+manifest.json provides feature download your webapp and have short cut icon on desktop.
+
+favicon.ico is to have icon file for which shows along with title on the browser tab.
+
+
+
+------------------------ how to upgrade scripts/libraries in react app ---------------------------------------------
+
+in the package.json we can go to dependencies section and just update the version for sripts or for react etc to the latest version
+
+and then run npm install for the project in cmd and it will update the version.
+
+
+------------------------ Setting Up tachyons IN react app -------------------------------------
+
+Tacheons provides us some shorhand version of common css classes
+
+example:
+
+text-align:center can be represented as tc
+
+we can simply install tacheon as npm install tachyons
+
+and import it in index.js file as
+
+import tachyons
+
+
+
+
+
+
+

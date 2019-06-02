@@ -1,0 +1,85 @@
+In react we define coponent as below:
+
+import React, {Component} from 'react'; // we must import Component class fro React
+import './Hello.css'  //import css file
+
+class Hello extends Component{  // each custom component must extend coponent class
+
+	 render(){ // Each custom component must implement render method
+
+		return(
+			//React requires usage of className instead of class for css
+
+			<div className = " f1  tc"> // f1 is tachyon for font size , tc is tachyon for text center
+
+			<h1> Hello World </h1>
+			<p> This is my First React App </p>
+
+			</div>
+
+		);
+
+
+	}
+
+
+}
+
+note: If we see above we have usee className instead of class to specify the css class, basically all the html content written inisde reder is not actaully html but it is react syantax which is similar to html and called as "JSX"
+Basically this is used by react to mmodel the shadow dom, since class conflicts with the class keyword for javascript in React, className must be used to specify the css class.
+
+ 
+export default Hello; // Each custom component must have an export to make it available in index.js file
+
+
+
+under index.js we must inlcude this component as 
+
+ReactDOM.render(<Hello />, document.getElementById('root'));
+
+note: 
+
+-------------------------- sending dynamic properties to a react Component(this.props) -----------------------------------------------
+
+
+
+ 
+we can send dynamic properties to the coponent and read them inside the component as below:
+
+
+ReactDOM.render(<Hello  greeting = { 'React Ninja' }/>
+
+
+inside hello.js we can read them as "<h1> Hello World {this.props.greeting} </h1>"
+
+this.props.<< property name >> is used to read the dynamic properties.
+
+
+---- Another Example
+
+	<Card name = {robots[0].name} id = {robots[0].id} email = {robots[0].email}/> // where card is a custom component
+
+
+note that we send in a single final object to the component , hence we must take care we have proper key value pair.
+
+
+we can also use objet desstrucuring to read the values in component , example
+
+if we are using method way to create the component
+
+const Card = ({name,id,email}) => {
+
+			// component code here
+
+}
+
+
+
+
+
+
+
+
+
+
+

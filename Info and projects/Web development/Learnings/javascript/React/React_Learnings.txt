@@ -1,0 +1,78 @@
+
+
+Most important point every  method in react must return only single element
+
+example:
+
+inside index.js if we want to return multiple card elements and if we do
+
+reactDOM.render(
+	
+	<Card />
+	<Card />
+	<Card />
+	<Card />, 
+	document.getElementById('root'));
+
+we will get an eroor beacause we are trying to retunr muliple card elements, to fix this we must wrap it under 
+<div>
+
+example:
+
+ReactDOM.render(
+
+
+	<div>	
+	<Card />
+	<Card />
+	<Card />
+	<Card />
+	</div>, document.getElementById('root')); // here we are returning single html element div
+
+
+
+
+
+
+----------------------- itration/java script operation under React Components -----------------------------------------
+
+
+supoose we are retunrning div element from our component, in that case if we are perfoming any javascript operations inside the div element we must wrap it under curly braces {}.
+
+Example:
+
+lets say we have card list component which receives an array of robots whih returns list of cards with robots:
+
+
+
+const cardList = ({robots}) => { // object destructuring from ES6
+
+return (
+
+		<div className = "tc m7"> // returns final div
+		
+		{	
+			
+			// java script code under curly braces
+			
+			
+			// iterate through robot list and send the info to card compnent
+			
+		robots.map((robot,i) => {
+			return (
+				
+				<Card 
+				key = {i}  // key is extra info needed by react to keep track of each component , it fascilitates react for dom rerendering.
+				name = {robots[i].name} 
+				id = {robots[i ].id} 
+				email = {robots[i].email}
+				/>)
+
+			})
+		 
+		}  // java script code over
+
+		</div>
+	)
+}
+

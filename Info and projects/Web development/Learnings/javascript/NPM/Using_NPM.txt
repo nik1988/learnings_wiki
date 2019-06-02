@@ -1,0 +1,80 @@
+
+------- we can search for packages in NPM site and install it using npm install
+
+----- npm install pacakges in two ways
+		
+		-- globally (using -g) exmaple: npm install -g << package name >>
+		-- locally  example : npm install << package name >>
+
+with global install , installed module will be available for any of the projets in the system.
+
+with local install , installed module will only be available for current project and entry will be made to
+package.json file for the current project.
+
+
+example: if we want to install lodash library locally we can do
+
+npm install lodash, and in package.json file we can see entry for lodash under dependencies and "node modules" folder will be created
+
+"dependencies" : {
+
+	"lodash": "^4.17.4"
+}
+
+
+similarly whatever modules we install will be added to the dependencies.
+
+
+
+------- we we set up an existing project we can only we need to run
+					
+					
+				"npm install"
+
+
+and it will automatically pick up depencies present under package.json and install them
+
+
+------------------------- scripts in package.json ------------------------------------------
+
+
+scripts in the package .json file provides us an easy way to confiure and run some default sripts which are required by our project example
+
+for example,
+
+we have installed a browserify script to create a bundle and liveserver to create a live server for the projet and for running each of these we need to do below:
+
+	everytime we add changes to the script we need to create a bundle like this 
+
+		browserify script.js > bundle.js
+
+similary for creating a live server we need to run liveserver 
+
+
+instead of doing this we can configure this in package.json under scripts and execute 
+		
+						npm run build
+
+example:
+
+	"scripts": {
+			
+		"build": "browserify script.js > bundle.js && liveserver" 	
+		
+		   }
+
+and we can simply execute both using 
+					npm run build
+
+
+
+
+
+
+									
+ 
+
+
+
+
+
