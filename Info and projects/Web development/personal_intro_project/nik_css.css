@@ -58,8 +58,19 @@ body{
 .intro_container > ul {
     margin:15px;
     letter-spacing: 0.1em;
-    font-size:1.5em;
+    /*font-size:1rem;*/
 }
+
+@media (max-width: 350){
+
+.intro_container > ul {
+
+    font-size: 0.1rem;
+
+}
+
+}
+
 .company_plate {
     display: grid;
      grid-template-rows:300px;

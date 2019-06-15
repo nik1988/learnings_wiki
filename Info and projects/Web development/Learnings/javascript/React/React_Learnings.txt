@@ -1,5 +1,8 @@
 
 
+------ Every component in React must import React from 'react'; ------------------- 
+
+
 Most important point every  method in react must return only single element
 
 example:
@@ -62,10 +65,10 @@ return (
 			return (
 				
 				<Card 
-				key = {i}  // key is extra info needed by react to keep track of each component , it fascilitates react for dom rerendering.
-				name = {robots[i].name} 
-				id = {robots[i ].id} 
-				email = {robots[i].email}
+				         key = {i}  // key is extra info needed by react to keep track of each component , it fascilitates react for dom rerendering.
+				         name = {robots[i].name} 
+				         id = {robots[i ].id} 
+				         email = {robots[i].email}
 				/>)
 
 			})
@@ -75,4 +78,94 @@ return (
 		</div>
 	)
 }
+
+
+
+
+------------------ Usage of key in React app -----------------------------------------
+
+If we iteate through react component and if we dont assign an unique key to each component, in browser console we will see error unique key not assigned.
+
+Basically react expects us to assign some unique key for each component when ever we are iterating through the componets for the purpose of rerendering of dom, with the unique key it keeps track of each component and when it is deleted/changed
+then uses the assigned key value for faster rerendering.
+
+
+
+----------------- Import Non UI componet in react app / Importing component which doesnot have export default -----------------------------------------
+
+
+if we are imporTing a js file in some other component which doesnot have export default we must wrap them under curly braces.
+
+example: robot is a javascript file which fetches us an array of robots, to use this robots.js file in any other component we must do:
+
+import {robots} from './robots'; //note tthe curly braces here
+
+
+
+------------- Commenting Out JSX code in react ---------------------------------
+
+ for commenting out code we must wrap either ' // ' or  ' /*  */ ' under {}
+
+ example :
+
+		{ //<article className="vh-100 dt w-100 ">}
+
+	or
+
+	{ /* <article className="vh-100 dt w-100 ">
+			  <div className="dtc v-mid">
+			    <h1 className ="tc">Loading....</h1>
+			  </div>
+			</article>
+
+			*/
+      }
+
+
+-------------- Way to define css using jsx code  ----------------------------
+
+if we wamt to define a style for our component we need to wrap it under {{}} , example:
+
+return (
+		<div
+			style= {{
+			
+			overflowY: "scroll", 
+			height: "800px",
+			border: "5px solid black"
+			
+		}}
+
+		>		
+
+		</div>
+	);
+
+
+-------------------------- Meaning of ./ amd ../ during imports ----------------------------------
+
+
+
+WHEN WE ARE USING ./ MEANS CURRENT FOLDER AND IF WE WANT TO COME OUT OF CURRENT FOLDER AND GO TO DIFFERENT FOLDER WE DO ../<<FOLDER NAME>>/<<COMPONENT NAME>> 
+
+CURRENT FOLDER BY DEFAULT IS SRC 
+
+
+exmaple suppose we have created two folders at the same level as src by name component and container and supppose we want to import components part of components folder in App.js which is container we would do
+
+import CardList from "../components/CardList";
+import SearchBox from "../components/SearchBox";
+import Scroll from "../components/Scroll"
+
+    ----------- so on and so forth
+
+
+
+
+
+
+
+
+
+
 

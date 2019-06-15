@@ -1,0 +1,64 @@
+
+
+-------------------- What is bind and why do we need bind in java script --------------------------
+
+bind is used to bind the method to a context of an objet which we want to use, lets see an example to uderstand:
+
+example:
+
+let talk = {
+	
+	speak:"HI";
+	say:function()
+		{ console.log("this.speak")  // note: if we just fo console.log(speak); and try to invoke talk.say(); we will get an error as speak undefined by default if this is not present js looks for\
+							variable definition in global scope.
+
+		}
+
+}
+
+now when we do
+
+talk.say() // prints HI
+
+but when we do 
+
+globalTalk = talk.say;
+
+globalTalk(); // prints Undefined  why ???
+
+
+
+let understand what will globalTalk = talk.say; imply to , this code is same as 
+
+
+	globalTalk = function(){ console.log("this.test"); }  // here "this" represents which current object
+
+
+ ----------- ONE OF THE MOST IMPORTANT BEHAVIOUR OF JAVA SCRIPT IT DETERMINES THE CONTEXT BASED ON THE CURRENT INVOCATION POINT -------------------------------------
+
+
+what does it mean ?
+
+
+in above code  globalTalk is more of a function then a method 
+
+ie point of invocation for globalTalk() is in global scope so JS will will resolve "this" objecct into a global object which is window
+
+since window objet doesnot know what is speak it will say "undefined"
+
+
+
+--------- WITH THE HELP OF BIND WE CAN FIX THE GLOBAL CONTEXT AND ATTACH THE OBEJECT CONTEXT FOR WHICH WE WANT TO MAKE A CALL-------------------------------
+
+we can tell java script to call globalTalk under the context of talk as below
+
+
+		globalTalk  = globalTalk.bind(talk) // this will bind globalTalk in under the cotext of Talk and "this" object within this method will resove to talk
+
+now if we do :
+
+	globalTalk() // prints Hi
+
+
+

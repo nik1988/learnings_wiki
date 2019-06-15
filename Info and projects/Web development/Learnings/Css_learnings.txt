@@ -1,4 +1,4 @@
------ including css in html -----------------
+1----- including css in html -----------------
 
 under head we must mention
 <link rel="stylesheet" href="<<css file path>>">
@@ -176,6 +176,19 @@ padding means give the space between the content metioned in HTML and the style 
 if we want to specify the padding for top,bottom,left and right we can so
 
 padding: 5px 20px 5 px 20px; //order is top right bottom left this is the standard order followed in css.
+
+
+----------------- padding inside a text box --------------------------
+
+As we know that padding increases the space around the element within the limits of defined border, when we give padding inside a text box 
+
+for example : <input type = "textbox" placeholder = "Search Robos " style = {padding:30px;}> 
+
+then in order to increase the space around it will increase the width and height of text box. probably because there is no border defined so it is free to expand
+
+
+note: In case of images it goes other way round they get squeezed but when they are inside a certain container
+
 
  
 
@@ -366,6 +379,30 @@ to new line.
 
 
 display:block: it is the default setting for display , each element inside div will be in new line
+
+
+---------------------- WHAT IS @font-face ----------------------------------------------------
+
+The @font-face rule allows custom fonts to be loaded on a webpage. Once added to a stylesheet, the rule instructs the browser to download the font from where it is hosted, then display it as specified in the CSS.
+
+Without the rule, our designs are limited to the fonts that are already loaded on a user's computer, which vary depending on the system being used. 
+
+
+
+---------------------- Creating a scollable for list of items/cards etc -----------------------------------------------
+
+
+Suppose we have are displaaying list of cards which below the search bar and a heading, Now we have a requirement where this list of items should be scrollable and heading and search bar displayed above should remain fixed.
+
+to achieve this we can wrap this list of items which is scrollable, example
+
+<div style = "overflow-y:scrollable;height:800px;border: 2px solid black;">
+
+ 		// list of items
+</div>
+
+overflow-y is for scroll bar in y axis and overflow x is for x- axis 
+
 
 
 

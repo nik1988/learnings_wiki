@@ -1,0 +1,51 @@
+
+
+------------------------ props.children in React -----------------------------------
+
+
+Till now we were creating self closing component in react, but what if we want to apply one component on top of another 
+
+example suppose we have created a scrollable component and we want to make our component scrollable by wrapping it under the scrollable component as below:
+
+<Scroll>
+
+	<CardList />
+</Scroll>
+
+
+so here we have two components Scroll and CardList, question is how do we render cardlist component inside Scroll component.
+
+
+for example if we define our scroll component as 
+
+	
+const scroll = props => {
+	return (
+		<div> // some code >  </div>
+};
+
+export default scroll;
+
+
+what will happen here is code defined inside scroll will overlap card list component and  content inside cardlist component will not be displayed.
+
+
+
+-------------- ThereFore we must use props.children to render all the enclosed components inside a parent component ---------------------------
+
+
+Even if we dont pass properties every component has default properties associated with and we can use them to access child/enclosed component using properties.children as below:
+
+
+
+const scroll = (props) => { // access default props note: we can access default properties using any name here we are using props
+	return (
+		<div
+			// css code for scrollable
+
+			{props.children}  // render the encloded component using props
+
+		</div>
+	);
+};
+

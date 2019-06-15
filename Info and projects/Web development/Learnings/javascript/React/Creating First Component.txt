@@ -22,11 +22,11 @@ class Hello extends Component{  // each custom component must extend coponent cl
 
 	}
 
-
+export default Hello;
 }
 
 note: If we see above we have usee className instead of class to specify the css class, basically all the html content written inisde reder is not actaully html but it is react syantax which is similar to html and called as "JSX"
-Basically this is used by react to mmodel the shadow dom, since class conflicts with the class keyword for javascript in React, className must be used to specify the css class.
+Basically this is used by react to model the shadow dom, since class conflicts with the class keyword for javascript in React, className must be used to specify the css class.
 
  
 export default Hello; // Each custom component must have an export to make it available in index.js file

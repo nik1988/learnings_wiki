@@ -1,0 +1,46 @@
+
+React comes with some set of predefined lifecycle methods along with component:
+
+These are divided into three sections:
+
+ -- Mounting
+ -- Updating
+ -- Unmounting
+
+
+----------- Mounting  ---------------
+
+When a component is mounted for the first time following is the list of methods that are executed in sequence:
+
+constructor()  // initialize using construtor
+static getDerivedStateFromProps() // 
+render()  // render the component 
+componentDidMount() // exeute this component when the component is rendendered. // if we want some set of code after the component has rendered this is the method we can use.
+
+
+
+note: If the method is not defined in our component it is simply ignored
+
+
+
+-------------------- Updating ---------------------------
+
+
+When the property or state chnages then an update happens and following methods are executed in sequence:
+
+
+static getDerivedStateFromProps()
+shouldComponentUpdate()
+
+render()
+
+getSnapshotBeforeUpdate()
+componentDidUpdate()
+
+
+-------------------- Unmounting --------------------------------
+
+
+when we chnage the url component is unmounted , following is the method which is called after unmounting
+
+componentWillUnmount()
