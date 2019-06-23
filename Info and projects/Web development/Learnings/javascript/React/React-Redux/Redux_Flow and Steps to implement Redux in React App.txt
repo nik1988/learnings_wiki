@@ -1,0 +1,35 @@
+
+For Implemeting Redux in our App we must do below things:
+
+As we know the flow for redux design pattern : 
+
+we have 
+
+
+	action -> reducer -> store -> react app -> render UI
+	^___________dispatcher_________________|
+
+FLow:
+
+
+Action defines the action done by user
+reducer modifies the state based on action, reducer contains the initial state of an app
+dispatcher dispatches the action from componet, we need to register dispatcher with our child component from container app : therfore flow is allways in one direction. 
+
+		-- actions are allways trigered by dispatcher
+		-- action is sent to reducer and reducer updates state based on action
+		-- as soon as state is updated react detects it ans renders the UI
+
+we create a store in index.js file by passing the root reducer and pass the state store to our container by using Provider provided by react.
+we connect our container component to the state store and dispatcher using connect method provided by react app. 
+
+connect method takes two arguments  : mapStateToProps and mapDispatchToProps
+
+mapStateToProps: we need to define this method to map the state variable our container component needs to props, this method must return an object takes state as an argument.
+
+mapDispatchToProps: In normal React flow we send a callback method to child component which updates our state variable, although in redux flow we send the dispatcher to our child component
+wich dispatches the action to our action.js file and pass the appropriate content as expected by the action method.
+It takes dispactch as an argument, dispatch is a method defined by react which dispatches the event to action when the method is executed from our child component.
+	
+
+Bsically we need to define a action by creating an action.js file w

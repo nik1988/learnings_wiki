@@ -1,0 +1,21 @@
+
+
+----------------- PLease refer notes for this --------------------------
+
+
+------------------ Redux Setup ----------------------------------
+
+Fot redux setup we need to do
+
+we need to navigate to our projet and install library 
+
+npm install redux
+
+
+Since we are working with react we also need to install 
+
+npm install react-redux 
+
+
+note: redux library works with other technologies as well, for react specfic redux we need to intall redux
+and react-redux both

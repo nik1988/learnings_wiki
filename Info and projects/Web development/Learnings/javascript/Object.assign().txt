@@ -1,0 +1,30 @@
+  -------------- cloning an object in java script using Object.assign() --------------------
+
+ we can clone an object in java script using Object.assign method i.e it makes the copy of source object and returns the new object
+
+Following points to know about Object.assign:
+
+-- It clones the source object and returns the new object
+
+	example: target = Object.assign(sourceObject);
+
+-- we can also modify the existing object using assign as shown below:
+
+	newObject = Object.assign(targetobject,sourceobject); // it  will return the newObject as well as copy the source object into the target object
+	or
+	newObject = Object.assign(targetobject, ...sources);
+
+-- newObject returned in this case will have properties of source as well as target object.
+
+-- If the target object have the same properties then property values will be replaced by the source object.otherwise if there are different properties present in target
+   object it will retain all of it properties and contain the properties of the source
+-- if the source object contains another object then it will only create a refernce of this object for the target object, in case we want new object to be created for all
+   underlying objects we need to use deep cloning.
+
+-- we can clone object from multiple sources into single object
+
+
+
+
+
+
