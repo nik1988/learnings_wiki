@@ -14,7 +14,7 @@ FLow:
 
 Action defines the action done by user
 reducer modifies the state based on action, reducer contains the initial state of an app
-dispatcher dispatches the action from componet, we need to register dispatcher with our child component from container app : therfore flow is allways in one direction. 
+dispatcher dispatches the action from component, we need to register dispatcher with our child component from container app : therfore flow is allways in one direction. 
 
 		-- actions are allways trigered by dispatcher
 		-- action is sent to reducer and reducer updates state based on action
@@ -32,4 +32,146 @@ wich dispatches the action to our action.js file and pass the appropriate conten
 It takes dispactch as an argument, dispatch is a method defined by react which dispatches the event to action when the method is executed from our child component.
 	
 
-Bsically we need to define a action by creating an action.js file w
+Steps to be followed to create a redux pattern:
+
+
+--------- We Need to Define Action-----------------------
+
+Bsically we need to define a action by creating an action.js file where we specify the action as methos which allways returns an object and contains type of action and payload carried by that action
+
+example in our robo friends we have a action where we modify our text field hence under action.js we specify our action as
+
+
+	export const setSearchField = (text) => ({ 
+
+						type:CHANGE_SEARCH_FIELD, // it is allways recommened to deine action as string constants in seprate constants file to avoid any typo errors.
+						payload:text
+	
+				})
+
+
+
+----------- We need to define reducers ----------------------
+
+
+Initially we create a separate file reducer.js:
+
+
+reducers contains a central state also known as initial state of an app and it contains a pure function which receives an interanl state and action , and based on the type of action it allways retunrs a new state object.
+
+it is called pure function because  it will allways returns same of ourtput for same input.
+
+reducer looks like as below:
+
+	
+			
+	import {CHANGE_SEARCH_FIELD} from './constants.js';
+
+	
+	// Initial state of an app
+		const initialState = {
+			searchField:''
+
+	}
+
+
+// reducer method
+// dispatcher provided by react redux method takes care of passsing state and action to reducer
+
+export const searchRobots = (state = initialState, action = {}) => {
+
+    switch(action.type){
+	
+	//currently we have only one action in real world app there are many actions.
+    	case CHANGE_SEARCH_FIELD:
+    		return Object.assign({},state,{searchField:action.payload}); // return a new state object using object.assign based on the type of action
+
+    	default:   
+    		return state;
+
+
+    } 
+
+
+}
+
+
+
+------------------- we register our reducer method as a store in index.js and provide it to our containers (Intillegent Components) using provider ------------------------
+
+under index.js file we will have
+
+	const store = createStore(searchRobots); // cteateStore is provided by redux library
+
+       	//provide the store to container components using provider
+
+	
+		<Provider store = {store}> // provider is imported from react-redux library
+
+		<App />
+		
+		</Provider>
+
+
+
+
+---------------- connect our container component to store -------------------------------------
+
+
+now our container component needs to be connected to store , we use connect method to do the same in our container component as shown below:
+
+App.js 
+
+
+rather than writing export default App 
+
+we will write
+
+export default connect(mapStateToProps,mapDispatchToProps)(App); // connect method is provided by react-redux
+
+
+connect method to received two method as arguments 
+
+-- mapStateToProps: it provides the state as pproeprty to parent component
+-- mapDispatchToProps: provides dispatcher as propert to parent componet
+
+
+these methos needs to be defined before class App extends Component { as shown below
+
+
+mapStateToProps = (state ) => { 
+
+	return { searchField : this.state.searchField}  // return the current state (in this case we are concerned about the state of searchfield so we are receiving the same)
+  
+} 
+
+
+
+
+mapDispactchToProps = (event) => {
+
+	return { onSearchChange : dispatch(setSearchField(event.target.value))  }   note: setSearchField is an action defined in action.js file which expects a text value and sends text value as a payload
+}
+
+
+
+
+note: normally we send a call bak method to our dumb  components but now we are sending dispatch instead which will dispatch an action upon a event
+
+note we can dispath multiple actions from mapDispactchToProps 
+
+now we can read these value as props in our App component as shown below
+
+
+	const {searchField,onSearchChange} = this.props; 
+
+look at App.js file from robofriends for more clarity.
+
+
+
+
+
+
+
+
+

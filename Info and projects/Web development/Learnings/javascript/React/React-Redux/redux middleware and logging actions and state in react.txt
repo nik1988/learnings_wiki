@@ -1,0 +1,50 @@
+
+
+
+-------------- what is redux middleware --------------------------
+
+basically when ever actions communicate with reducer it does is through a react middle ware, middleware act as tunnel between action and a reducer and using middle ware action deterimines whih reducer to take.
+
+
+
+we can use this middleware to configure actions or make them better.
+
+
+
+------------------------ logging previous state curren actin and new state in react. -----------------------------
+
+to log redux apps we can install a library called as redux logger using npm install redux logger
+
+
+redux logger provides a method called as createLogger and we can invoke this method in index.js to create a logger as shown below:
+
+
+
+const logger = createLogger(); //note we import createLogger from import {createLogger} from 'redux-logger';
+
+
+
+now we can pass the logger to redux middleware to log all the state chnages automatially as shown below:
+
+
+here apart from creating store we will also pass applyMiddleware which applies logging for this particular reducer
+
+const store = createStore(searchRobots,applyMiddleware(logger)); // we can import applyMiddleWare from redux
+
+
+after that upon every action we can see logs in console as shown below:
+
+
+ prev state {searchField: "a"}
+  action     {type: "CHANGE_SEARCH_FIELD", payload: ""}
+payload: ""type: "CHANGE_SEARCH_FIELD"
+
+ next state {searchField: ""}
+
+...............
+
+redux middle ware makes it easier for us to deug a react app.
+
+
+----------------- we also have some thing called as redux dev tools which is a cool library to debug react apps ---------------------------
+
