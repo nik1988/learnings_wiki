@@ -39,3 +39,56 @@ this error happens in case of 2 scenarios:
 In our code multiple copy of same jar with different versions were present,need to delete the jar with older version to fix the issue.
 
 Search for the class it is throwing error to identify the jar it belongs to then, then check for the jar in lib.
+
+
+
+---------------- Illiegal Monitor state exception while calling notify in produer/comsumer problem ----------------------------
+
+
+
+When ever we call notify or wait method we must call it on the object that we are synchronizing on the synchronized block.i.e for example
+
+if we some thig like this
+
+class Producer implements Runnable{
+
+	synchronized(Queue){
+
+		//some logic
+		
+		wait();	 //wait will be called on Current thread which is Example , not on Queue
+
+		}
+}
+
+
+now if we do
+
+Class Consumer implements Runnable {
+	
+	Synchronized(Queue){
+
+	//some logic
+	
+	notify(); // will give illiegal monitor state exception (solution: call notify on object wwe are synchronizing hence Queue.notify())
+
+		
+	}
+	
+}
+f
+Basically we must allways call notify on object we are synchronizing, if we simply call wait and notify ,monitor is monitored for current object rather than object we want to share
+
+
+for example
+
+in above case if we call wait and then if we call queue.notify() , producer thread will never wake up beause monitor state was acquired on producer object rather than queue
+so JVM will only look for thread waiting on Queue object to notify and it will never find one.
+
+but if we do queue.wait() , JVM will know wait was called on queue object hence when we do queue.notify it will wake up all the threads which has called wait upon queue object.
+
+
+if we dont specify the object we want to wait or notify jvm wouldnt know whose monitor state it shall acquire. by default it will acquire for current thread in this case we will have no way 
+to call notify based on shared object.
+
+

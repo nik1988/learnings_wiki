@@ -176,8 +176,7 @@ css.textContent = body.style.background;  // writes background propert to h3 ele
 
 same as :
 
-css.innerHTML =  document.querySelector("h3");
-
+css.innerHTML =  body.style.background;
 
 
 

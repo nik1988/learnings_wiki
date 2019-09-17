@@ -52,24 +52,24 @@ body{
     justify-content: flex-start;
     margin-top:40px;
     margin-bottom:20px;
-    height:40vh;
+    height:30vh;
 }
 
 .intro_container > ul {
     margin:15px;
     letter-spacing: 0.1em;
+    font-size:calc(0.5em + 0.5vw);
     /*font-size:1rem;*/
 }
 
-@media (max-width: 350){
+/* @media (max-width: 800px){
 
 .intro_container > ul {
 
-    font-size: 0.1rem;
-
+    font-size:12px;
 }
 
-}
+} */
 
 .company_plate {
     display: grid;
