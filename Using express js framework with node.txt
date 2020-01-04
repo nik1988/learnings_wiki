@@ -1,0 +1,76 @@
+
+------------- Setting Up express js framework -----------------------
+
+we can install express using npm install express
+
+
+-------- creating server using express -----------------------
+
+we can create server using express as shown in below example:
+
+
+server.js
+
+const express = require('express');
+
+const app = express.server();
+
+server.listen(3000);
+
+
+----- advantages of using express -----------------
+
+express js is very good with routes it allows us to send request/response based on particular request:
+
+example:
+ 
+app.get('/',(req,res) => {   // receives request for /
+
+	res.send("<h1>Helo This is express server</h1>");
+
+}) 
+
+
+app.get('/jsonresp',(req,resp) => { // receives request for /jsonresp.
+
+	const user = {name:"Nik",hobby:'Travelling'}
+
+	resp.send(user);
+
+})
+
+
+also as we can see express automatically converts the response into required format, in first case it automatically converts the response into html and in second case converts the response into json.
+
+it preventd us with extra boilerplating as we needed in case of http where we needed to specify content-type.
+
+
+
+----------------------- Using Middleware with express -----------------------------
+
+express has a concept of middle ware where in every request that is received goes through a middleware where it is processed afer which it goes to actual handling of request.
+
+it helps in perform certain operations on request before passing on to the method which actually handles the request.
+
+
+middlewares are achieved using function name use(), example:
+
+const app = express();
+
+app.use((req,resp,next) => {
+
+console.log("test use method")
+next();   // if we dont call next here request will never go to the method which sends the response, and server will appear like it has hanged.
+})
+
+app.get('/',(req,res) => {   // receives request for /
+
+	res.send("<h1>Helo This is express server</h1>");
+
+}) 
+
+app.listen(3000);
+
+
+------------------------
+
