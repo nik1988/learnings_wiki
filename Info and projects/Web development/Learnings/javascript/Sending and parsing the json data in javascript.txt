@@ -1,0 +1,28 @@
+
+
+
+--------------Sending and receiving data to and from browser using json(java sceript object notification) -------------------------
+
+
+ -- json and xml are the two standard ways of communicating data over the network,but xml is outdated as json is easier to understand and comnsumes lower bandwidth.
+
+
+------------ sending the json data from front end -------------
+
+json data is not exactly same as java script object example :java script object might look like: const obj = {name:"nik"} although everything in json must be a string.
+
+NOTE: EVERYTHING SENT IN JSON IS STRING. example: {"name":"nik"}
+
+
+---------------------- JSON.stringify() method -------------------------------
+
+in order to convert the java script object into a valid json format to be sent over the network we use JSON.stringify() method.
+
+	example: const jsonobject = JSON.stringify(obj);
+
+
+------------------  JSON.parse() method ----------------------------
+
+in order to convert back the json into valid java script object we use JSON.parse() method.
+
+examle cosnt obj = JSON.parse(jsonobject);

@@ -1,0 +1,40 @@
+
+
+ ---------------- Positioning Elements in Css------------------------
+
+we can position elements in Css using top,bottom,left amd right
+
+example:
+
+<div class = "position-image"> some html image/element </div>
+
+// suppose we want to place an image on top left
+
+css would be like:
+
+.position-image{
+	
+	positon: ----
+	top:10px;
+	left:10px;
+
+}
+
+
+-------- How to position an element in css------------------
+
+position: fixed  -- makes the position of element fixed according to view port.
+
+position:relative: positions the element relative to current layout. 
+
+
+------------------- Posiotion relative ----------------------------
+
+when the positon is set to relative it adjust according to current layout of elements suppose if 4 elemets in line , the element we are applying to will position according to the layout of current
+set of elemets
+
+		elem1 eleem2      elem4   this should happen when we position elem 3 as top : 10px;
+
+			    elem3
+
+When we position the element as relative it enables 

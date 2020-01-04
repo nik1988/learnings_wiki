@@ -1,0 +1,77 @@
+
+
+----------------------- Why Js frameworks are needed and what real problem does it solve ----------------------------------
+
+
+Ideally we hear UI frameworks have below advantages":
+
+-- Easier to maintain
+-- COomponent Based approach
+-- Routing
+-- Shadow/Vitual dom etc
+
+
+But this was not the real issues which brought UI framework into the picture,Actual Prblem it solved was 
+
+				State Management: i.e keeping the UI in sync with data
+				
+Basically managing state was difficult and required us to write husge amounts of code.
+				
+Quetion is How:
+
+Back in the days we used to use Jquery to manage state of the UI and manipulate dom as shown in below example:
+
+let says we have an html code which prints the shopping list:
+
+
+	<div id = "loop"> item1 </div>
+	
+now if we want to add html element based on some dynamic array and add some css based on selection our jquery code would look like:
+
+var loopData = ['Apples', 'Bananas', 'Milk']
+
+$.each(loopData, function(index, value) {
+  $('<div>' + value + '</div>')
+    .click(function() {
+      $(this).toggleClass('highlighted')
+    })
+    .appendTo($('#loop'))
+})
+
+above code is difficult to understand and maintain. With complex UI it becomes worst
+
+
+
+------------------ In vue.js we can achieve something like above as shown below --------------------------
+
+new Vue({
+  el: '#output',
+  data: {
+    shoppingList: [
+      { name: 'Apples', selected: false },
+      { name: 'Bananas', selected: false },
+      { name: 'Milk', selected: false },
+    ],
+  },
+})
+
+-------------- Html --------------------------
+
+<div id="output">
+  <div
+    v-for="item in shoppingList"
+    v-on:click="item.selected= !item.selected"
+    v-bind:class="{highlighted: item.selected}">{{ item.name }}</div>
+</div>
+
+
+
+we can see code is cleaner and easier to understand
+
+othere than this there are several other advantage in terms of UI performance because of shadow dom rendering.
+
+for more info please go through below links:
+
+https://www.academind.com/learn/javascript/jquery-future-angular-react-vue/
+https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445
+https://www.codementor.io/binarymuse/react-components-from-a-jquery-programmer-background-du107k2lz
