@@ -1,0 +1,46 @@
+ 
+ 
+ --- we can create a basic ubuntu server in digital oceean and connect with it rempotely using windows/linux machine.
+ 
+-- with ssh client comes with windows 10 as an optional update , with mac and linux it is already available.
+
+let say we want to install git and node imn ubumtu server so that we can use git command (git clone) to clone project from github and use npm install
+to install and run the project.
+
+ step 1 : open the ssh client and connect with  ths server using
+				
+				ssh root@<<ip adress>> // ip adress would be of the server you have created in digital ocean
+									   // root is the default super user in linux machines
+									   
+				it will ask user name and pass word , // provide same password/ ssh key which you have provided while setting up server
+				
+ step 2 : we can inatall any software in linux using 
+					
+								sudo apt get install <<package name>>
+			
+		some times we may get package not found so we can run  "sudo apt get update " and then sudo apt get install
+		
+			so we will run :
+								
+								sudo apt get install git 
+								sudo apt get install node
+ 
+
+ step 3: after these packages are isntalled we can run git clone 
+ 
+			// may be this steps need to be done in local machine and transfer the files to remote macchine
+					if your local machine is linux/mac you can use rsync else need to use putty for windows.
+ 
+				in git we get two options to clonet the project 
+						
+						--using ssh
+						--using https
+						
+			using ssh we can clone using git clone <<ssh key from git hub>> // for this we need to set up ssh with git hub
+			other we can do
+				git clone <<https url from github >> 
+				
+	 -- now onnce the project is successfully cloned we can go to the projuect directory and run npm install
+
+	 
+				

@@ -1,0 +1,41 @@
+
+
+There are 3 essential/fundamental factors we need to consider for performace
+
+-- Network
+-- Performance of web app in client side
+-- Performance of web app on server side.
+
+
+
+--- Considering Network Side --------
+
+When we are talking about network side we are taking about time/latency it takes to load web app
+
+When ever user enters the url of website, 
+  -- Html , javascript and css is tranfered from server to client and client browser runs these to render the website, so more the size of these resources
+     more bandwidth it will consume and more time it will take for app to load.
+	 
+	 so when we talk about network performance we are talking about optimizing the size of these resources (css, images, js etc) so that websote is rendered faster
+	 
+	 
+----- factors to consider for reducing size
+   
+      -- size/format of image to be rendered
+      -- size of js which is stored in server , how can we reduce it	  
+	  
+	  
+
+--------- Size of Javacstipt -----------------------
+
+when ever developer writes code for js there is allways space and indententios for the readibility of code, although in machine these newlines and spaces
+are transalated into extra KB's which are not necessary for client browser to execute the code.
+
+In order to decrease the size of js we can remove these indentions and space by using web sites which will convert it, In modern apps we have webpack bundler
+which autoamtically removes these as part of build process.
+
+
+-------- Size of images for performace ----------------
+
+Size of images will be covered in seprate section
+	  

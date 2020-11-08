@@ -1,0 +1,24 @@
+
+
+--------- Assymetric Encryption -------------------------------------
+
+-- This form of encryption is more secured as it involves two keys public and private for encryption of data
+-- How Assymetric encryption is more secure  ?
+	
+	In this form of encryption private key is never shared over network and data cannot be decrypted with out , hence attacker can access exncrpted data
+	but never really can decipher it.
+
+-- How Assymetric encryption works  ?
+
+ -- In Assymetric encryption both the systems will have private key and public key
+ -- In order to establish communication both the computer will share there public key.
+ -- private key cannot be calcuated from public key so evenn if attacker gets it he cannot generate private key to decipher messages
+ -- sender will encrypt the meesages with receivers public key and receiver can only decrypt messages using its private key which are encrypted using it 
+	public key.
+ this way secure communication is established.
+
+ 
+ --- the key exchange algorithm used for asymmetric communication is called "Difiie Hellman Key Exchange" algorithm.
+ 
+ 
+ 

@@ -1,0 +1,78 @@
+
+
+--------- In order to send and receive request/response over the wire we can create server using node and use the same to send and receive request/ responses.
+
+
+ --- we can create server in node using http module which is available with node.
+ 
+ example:
+ 
+ server.js
+ 
+ const http =  require('http');
+ 
+ const server = http.createServer((request,response) => { // create the server which listens to request and response.
+ 
+		console.log("request received by server");
+ 
+ });
+ 
+ server.listen(3000); // server will listen to port 3000
+ 
+ 
+now when we run node server.js console and when we run localhost:3000 in browser we will see our console.log message in console although we dont see anything in browser as currently we are not sending 
+any response from the server.
+
+
+
+
+----------- running the server using nodemon ---------------
+
+we can directly run nodemon and nodemon will detect any changes in server, for that we need to go to package.json and give nodemon << name of server file .js >> and then run npm start in cmd under our 
+project folder location.
+
+note: npm start ultimately executes the command mentioned under scripts.
+
+package.josn example
+ "scripts": {
+   "start":"nodemon server.js"
+  },
+  
+ 
+ 
+-------------- example for sending response and reading request from our server ----------------------------
+
+ const http = require('http');
+
+ const server = http.createServer((request,response) => {
+
+ 	console.log("request received");
+ 	
+ 	// watching the request
+ 	// console.log('headers',request.headers);
+ 	// console.log('method',request.method);
+ 	// console.log('url',request.url);  
+
+
+ 	// sending data as html
+ 	
+ 	/*
+	 	response.setHeader('content-type','text/html');
+	 	response.end('<h1> Helooooo this is my first node server </h1>');  // send the response as html
+	*/
+ 	
+ 	// sending data as json
+
+ 		response.setHeader('content-type','application/json');
+
+ 		const user = {name: 'Nikhil',age:31};
+
+ 		response.end(JSON.stringify(user)); // send the response as json.
+
+ }) 
+
+ server.listen(3000); 
+ 
+ 
+ now when we run localhost:3000 in server we can see the response in browser.(json respose in above case as it is the one which is uncommented)
+ 

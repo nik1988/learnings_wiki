@@ -1,0 +1,235 @@
+
+------- What is Critical Render Path --------------
+
+Critical render path is the path taken by browser to generate html content when it encounters html code.
+
+--- what happens in critical render path ------
+
+ Step 1: Browser encounters html code and starts generating DOM (Document Object Model) in sequential order as tags.
+ Step 2: While generating DOM it encounters css link and downloads css and creates CSSOM in midst
+ Step 3: when cssom is done , it can encounter js file and downloads and compiles it which it needs to run on css and dom.
+ Step 4: once the generaion of dom and cssom is generated both are combinbed to genetrate render tree which tells what to render on page.
+ step 5. Browser figures out the layout(height, width , position of elements etc )using render tree and then paint the pixels.
+ 
+ After step 5 final webpage is rendered to users. although what happens with image links , well images are not part of this process and they are downloaded in parallel.
+ 
+  
+  Optimizing using Critical Render Path of Browsers:
+  
+  Step 1
+  
+  -- When we create an html code script tag should always be at the bottom of page apart from few exceptions where js execution is necessary before page loads.
+     JS script tag on top blocks the page rendering , and if js link is encountered browser downloads them and this might delay downloading of other media and 
+	 css files, and js is in most cases usefull only after page is rendered, so it js is at bottom it gives and analogy of faster rendering.
+	 
+	 example scenario:
+	 
+	 <html> 
+	 <head>
+	 <script> alert('hello') </script>
+	 <link rel = "stylesheet" href = "./style.css">
+	 </head>
+	 <body> .. </body>
+	 </html>
+	 
+ when we run above code we can see in network tab until js code is completed , i.e until user clicks ok css wont be downloaded.
+ 
+ In short script tag should be at the bottom and css link should be at the top so that browser can create render tree as soon as possible and user can view
+ the page quickly
+ 
+ Step 2:
+ 
+ We can improve the performance of css by following practice of above the fold loading.
+ 
+  -- What is above the fold loading...
+  
+  many cases what happens is user only view certain part of page and as user scrolls the page more content appears, in this case it is not neccessary to load the css for items which will not be viewed by user on initial render of page.
+  
+  -- How can we achieve this
+  
+  we can achieve this by loading below the fold css using javascript.
+  also to check whether we have achieved this or not we can monitor network where red line indicates the page load, what we want to achieve is waterfall for 
+  below the fold css should be achieved after red line, waterfall for above the fold css should appear before the red line
+  
+  example:
+  
+  lets say we have h1,h2 and h3 tag anb lets consiser h1 and h2 is above the fold which will appear to user on intital load and h3 is below the fold which 
+  will appear to user after scroll.
+  
+  so we want css thats needed to applied to h3 should be loaded after page is rendered.
+  
+  so we will java script in bottom in body tag as below:
+  
+	   <script type = "text/javascript">
+	   // generate html element for style.
+	   const loadStyleSheet = (src) => {
+		
+		if(document.createStyledheet) {
+			document.createStylesheet(src);
+	   } else {
+		
+		const styleSheet = document.createElement('link');
+		styleSheet.href = src;
+		styleSheet.type = 'text/css';
+		
+		document.getElementsByTagName('head')[0].appendChild(styleSheet);
+	   }
+	   
+		window.onLoad() {
+			loadStyleSheet('./style3'); // load below the fold css sheet after widow is loaded
+		}
+	   
+	   
+	   </script>
+   
+    
+   above code will load style3 after window has loaded this imporving initial page render performance.
+   
+   
+  Step 3:
+  
+  Optimizing perfromance by handling java script in critical render path. 
+  
+  what happens is in critical render path first the dom is constructed then cssom is created and if javascript is encountered , rendering is blocked aand
+  it is first downloaded and executed because it can manipulate both cssom and dom thats why javascript is called parser blocking. 
+  
+  because it blocks parsing of dom and cssom which generated render tree and paint the page.
+  
+  In order to avoid js from blocking the parsing we can use async or defer in script tag.
+  
+  example:
+  <script async>
+  <sctipt defer>
+  
+  Explaination:
+  
+  What happens is when a normal script tag is encountered browser blocks the parsing abd downloads and executes the script and then continues to parse in sequential order.
+  
+  parsing here means point wehere dom and cssom is generated to actual paint of page.
+  
+  when script async tag is encountered what it tells browser is continue to download script in back ground while browser continues to parse , once the script
+  is downloaded then only parsing is blocked to execute the script.
+  
+  when script defer tag is encountered it tells browser that download the script while it continues to parse and execute the script when parsing is completed.
+  
+  
+ When to use async/defer
+ 
+ with async catch is it may happen that script may start getting executed before entire parsing has completed and if it manipulates dom before it is even there
+ we can get issues.
+ doubt : wont is happen in normal critical render path. -- not clear 
+ 
+ so we can use async with any third party scripts which dont manipulate dom. eg google analytic scripts/tracking scripts
+ 
+ we can use defer for scripts which are not part of core or above the fold functionality.
+ 
+ 
+example testing:
+
+lets say we have three inline script tags inside body of an html code as below
+	
+	<body>
+		<script src = "./script.js"></script>
+		<script src = "./script2.js"></script>
+		<script src = "./script3.js"></script>
+	</body>
+
+
+-- script.js --
+
+document.addEventListener("DOMContentLoaded", function(event) {
+	console.log('Dom fully loaded and parsed');
+})  // callback function is called wheen dom is prepared (this steps talks about when render tree is generated afer dom and cssom is created).
+
+window.addEventListener("load", function(event) {	
+	console.log('All resources loaded');
+}); // call back is executed whall the resources including images are loaded.
+above step comes in when client finally paints the page after render tree is created
+console.log('this is script 1');
+
+-- script2.js ---------
+
+console.log('this is script 2');
+
+-- script3.js --------
+console.log('this is script 3');
+
+
+now when we run above code we will see output as 
+
+this is script 1
+this is script 2
+this is script 3
+Dom fully loaded and parsed
+all resources loaded
+
+above output shows that only after java script is completely executed dom is loaded and resources are loaded which shows js is render and parser blocking.
+
+now lets try to add async in one of the scripts:
+<script src = "./script2.js" async> </script>
+
+now the output would look like :
+ this is script 1
+ this is script 3
+ Dom Fully loaded
+ this is scrip 2
+ all resources loaded
+ 
+ when we used async script2 didnt block loading and parsing of dom.
+
+
+
+
+-------- Another thing for page performance is avoid long running javascripts --------------------
+
+
+when we have js running for long timne it blocks the page from doing any thing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+ 
+  
+ 
+ 
+ 
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
+ 
+ 

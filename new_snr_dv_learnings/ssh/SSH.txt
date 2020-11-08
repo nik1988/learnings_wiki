@@ -1,0 +1,51 @@
+------- What is SSH ------------------------------
+
+-- Ssh is used to securely execute commands to on other/remote computer , using terminal/commnd prompt.
+	In Mac/Linux we can directly execute ssh commands using terminal in windows we need putty sofware to execute commands.
+	
+--------- What is the difference between SSH and Https ---------------------------
+
+Ssh is used to execute commands in computer where as Https is used to securely communicate with server over a browser
+
+-- how does SSH work ----------
+
+ssh creates a secure pipe line between two computers to communicate over a network.
+
+-------- how does HTTPS works -----------------------
+
+to communicate over https, when ever browser make a request to website over https lets say youtube.com then in order to confirm that is actually actually a 
+youtube server , it responds with certificate and public key, certificate must be signed by a known certificate authority, browser in turns checks the authenticity of the certificate using public key from the list of certificate provider configured in the browser.
+
+some times we have created an apllication and it needs to be used by other users over https, it may happen we dont have any known certficate authority to sign
+our certificate in that case we can self sign our certificate and when user try to access the site with self signed certificate user will be prompted by browser that certificate is not signed by trusted source and user needs to add the certificate to exception list.
+
+
+---- how to use ssh to access server -----------------
+
+we ca use ssh command to access server below:
+
+ssh<<user>>@<<ip address>>
+
+example: ssh root@166.99.146.57 // ip address is the address of server created in cloud(Digital Ocean) and user is the root user for Ubuntu os selected
+
+we can access any type of user we want, currently we are working with root user who has all the access.
+
+after we have accessed the system we can perform all the operatons like mkdire, ls etc
+
+------------- why ssh is needed for web development  -----------------------------
+
+apart from secure communication , many companies use ssh to connect with githup or deploy applications in a server.(for example production app deployed on server).
+
+
+------------- Where to run ssh command in windows -----------------------------
+
+In linux or mac we can run commands over terminal directly , although for win `10 and above we can use :
+
+		Windows PowerShell(terminal) to execute ssh commands
+		
+		
+
+
+
+
+

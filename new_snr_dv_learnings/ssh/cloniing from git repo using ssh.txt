@@ -1,0 +1,26 @@
+
+ --------- Cloning repo from git hub -----------------
+ 
+ 1. generate private/ public key
+ 2. go to github.com and under settings --> ssh --> add public key
+ 3. after adding public key add private key in your local machine using ssh-add
+ 4. test ur connection to git hub using cooomad
+      ssh -T git@github.com
+ 5. connection should be successfull , it would no access to git terminal , thats ok
+
+ 6. if you are using mac/linux , you can directly clone your project using git clone @ << url of repository copied  from git >>'
+
+    -- In case you are using windows please , you might get public key authentication error , please follow below steps before using git clone
+		
+		after successfully setting up private/public key for git you need to naviagte to :
+
+		C:\Program Files\Git\etc\ssh
+
+		-- open ssh-config file present under it and add below information : 
+		    Host github.com 
+			User git 
+			IdentityFile << absolute path to your private key for git >>
+
+     -- restart power shell and try to clone repository again
+
+       git clone  <<url copied from git repo>>

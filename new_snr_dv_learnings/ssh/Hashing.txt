@@ -1,0 +1,17 @@
+
+
+---- What is hashing and what is the need of hashing. -----
+
+ Dffie hellmans algo can be broken if hacker acts a middle person between two systems, for example
+ 
+ if hacker cretes a successfull pipe line between sender and receiver both.and decrypts the message sent by receiver and then encrypt and send the
+ request the same request to receiver in turn getting the response which was supposed to be received by receiver.
+ 
+ 
+ 
+ This prtoblem oh hacking can be solved by hashing which ensures sent message is no tampered before returning the response.
+ 
+ 
+ ---- How hashing works --------------------
+ 
+ -- Currently not clear..........

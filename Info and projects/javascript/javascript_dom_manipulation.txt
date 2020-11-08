@@ -1,0 +1,208 @@
+There are various events assciated with html dom elements through which we can manipulate them on user operation like click, mouseout.mousein etc.
+
+Information about various events associated with various elements can be found in : https://developer.mozilla.org/en-US/docs/Web/Events and also events are categorized as keyboard events , mouse events etc.
+
+we can find all possible events in : https://developer.mozilla.org/en-US/docs/Web/Events
+
+-------- Attaching event to an element in vanilla javascript ---------------------------------
+
+
+let say we have an event we can attach event to a button as below:
+
+var button  = document.getElementsByTagName("button")[0];
+
+button.addEventListener( "click" , function() { 
+
+	console.log("click");
+
+});
+
+
+addEventListener tells that which event we want to listen for a particular element(i.e. register an event) and what function we want to perform on that event.
+
+
+----------------- calling the function rather than defining the function as an argument for addEventListener -------------------------
+
+we can do as shown in below example:
+
+button.addEventListener("click",addItemOnClick) //notice that we dont use () after function name to make a function call, becuase function being called as a callback function.tee
+
+
+function addItemOnClick() {
+ 	//logic here
+}
+
+if suppose we have to pass event as an argument :
+
+input.addEventListener("keypress",addItemOnEnter); // notice that we dont have to give addItemOnEnter(event), to call a method, but we need to accept an argument during function definition, js automatiacally takes care of passing the
+event to a method.
+ 
+function addItemOnEnter(event) {
+
+ if(event.keyCode == "13")
+.....
+}
+
+
+------------------- creating an html element in javascript and dynamically adding it to the current html ------------------------------------
+
+we can create whatever html element we like dynamically using "document.createElement" method.
+
+
+----------------------------- document.createElement()------------------------ ----------------
+
+Suppose we want to create a list html element "li" in javascript we can do
+
+var listElement = document.createElement("li");
+
+now how do we add content to new list element that we created for that we can use appendChild mehtod 
+
+also suppose we have created an button using create element method and we want to give some text for the button we can do:
+
+var button = document.createElement("button");
+button.innerHTML = "Delete Button" same as <button> Delete Button </button>
+
+
+note that in case of button there is no child node avaiable , so we need to use innerHTML to give some meaning full name
+
+---------------- appendChild() ---------------------------------
+
+With appendChild we can add a child node or a child element to a current html element.
+
+now suppose we want to add a text fot the li element that we created above, so for this if we see a dom tree every every html element node has a child node as text node.
+
+so we can append a text node using document.createTextNode to every element that we create to print the content that we want and attaching the text node using appendChild method
+example:
+
+li.appendChild(document.createTextNode("this is user defined text")); // we can create a text node by using document.createTextNode.
+
+also li should be added as part of some unordered list defined in html ie it must be a part of any of ul element defined in current html, or suposse we are adding dynamically some list item to an existing unordered list based
+on user input.
+
+lets take for simplicity we have only one ul present in html then we can do :
+
+exmaple:
+
+var listElement = document.createElement("li");
+li.appendChild(document.createTextNode("this is user defined text"));
+
+var ul = document.querySelector("ul");
+ul.appendChild(listElement); // adding li node to ul present in static html
+
+
+---------------- removeChild() ------------------------------------------
+
+we can use removeChild() mehtod to remove a child node. we can also use the remove method to do the same thing.
+
+
+--------------------- handling events based on keypress/based on pressing of specific key / "event.which",event.keyCode --------------------------------------------------------------
+
+suppose we want to perform certain operation based on press of "enter" key 
+
+we need to listen to the keypress event and we need to identify which key has been pressed.
+
+every event that we listen to returns an obect of "event", using this event object we can read keycode or which to identify which key has been pressed.
+
+every key that we press in keyboard has keycode associated with it , we can find out the key codes in "https://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes" 
+
+for enter button we have a keyode of 13 we can use this as below:
+
+input.addEventListener("keypress", function (event) { // where input is reference variable for textbox in html which can be ontained from query selectors.
+
+	if(event.keyCode === 13){ // we can use event.which instead of keycode.
+		
+		console.log("enter is pressed");
+	}
+})
+
+
+
+
+------------------------ event.target method / Identfying on which element event is performed  ------------------------------------------
+
+
+when a event is generated for example click,keyperss etc, and event object is passed as an argument to callback function , this event object can be used to identify the element
+on wwhich this event was performed using event.target method.
+
+
+
+------------------------------- toggle class in javascript / making the class on off -------------------------------------------
+
+
+we can do so in js using toggle property example:
+
+	
+	function onClick(event){
+	
+	 var ele = event.target // get the target element whose class we want to toggle
+	 ele.classList.toggle("done"); // toggle the done css class on or of on click event.			
+	
+	}
+
+
+classlist fethes the list of classes applied to an element of which we can specify the class we want to toggle inside toggle property.
+
+
+
+
+--------------------- input event/colour picker property -------------------------------------------------------
+
+ html 5 comes with a way for a user to select a color from color picker we can provide this option in html using
+
+			
+			<input type = color name = color1>
+
+In java script we can perform operations based on the color selected by the user using input event : 
+
+example:
+lets take color1 references to the input type above:
+
+then color1.addEventListener("input", function() {
+// what ever operation we want  to perform.
+})
+
+	
+like color picker we can specify date pickers and all
+
+
+--------------------- createTextContent for adding text inside html elements from  JavaSript ------------------------------------------
+
+
+If we want to a text inside an html element from java script we can use either innerHTML or textContent
+example:
+
+var css =  document.querySelector("h3");
+css.textContent = body.style.background;  // writes background propert to h3 element and its value will be displayed in page as part of h3
+
+same as :
+
+css.innerHTML =  body.style.background;
+
+
+
+-------------------------------  innerHTML vs textContent vs document.createTextNode -------------------------------------------------
+
+
+innerHTML is not reccommended to use as it is vulnerable to XSS attacks and whenever it is invoked it recreates the entire dom tree (markup) again to insert new change which is bad for performance--- how need to check
+
+doument.createTextNode : created every time new node and needs more code to right. we may end up creating multiple nodes showing muliple values when we just need to update a value.
+
+textContent: Best and easier to use when we need to add just text content inside an element.
+
+
+
+
+----------------------- addEventListener vs onCLick,onInput properties in java script ----------------------------------------------
+
+
+Rather than using addEventLsitner we can also use onClick , OnInput etc for catching events generated by an html element 
+
+example:
+
+	<input type = "button" onclick = "testButton()" value = "Test Button"> 
+
+and we can define a testButton method in js although there are two disadvantages for this approach :
+
+1.Separation of Concerns : js code gets mixed with Html
+2.Flexibility: with this approach we can attach only one method for a particular event but with addEventListner we can associate event with as many methods as we want.
+

@@ -1,0 +1,10 @@
+--- we can check the performance of our website online using below resources :
+
+ https://developers.google.com/speed/pagespeed/insights/
+ 
+ in the page speed insights we can provide our website url and it will calculate performance of our page for desktop and mobile and return the response
+ and also suggest the ways to improve the performnace of page.
+ 
+ Another resource that we can use is :
+ 
+ https://www.webpagetest.org/

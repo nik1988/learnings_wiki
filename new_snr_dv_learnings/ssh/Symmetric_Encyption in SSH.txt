@@ -1,0 +1,24 @@
+
+SSH works basically by following two encryption techniques :
+
+ -- Symmetric Encryption
+ -- Asmmetric Encryption
+
+
+
+What is Symmertic Encryption
+
+In Symmetric encryptionn  both client and share commonn key which can be used by both the parties to decrypt the encypted message. 
+Bassically client shares the data encrypted with the shared key and server can use the same key to decypt the information.
+
+
+Disadvantage with symmetric encryption:
+
+if some one tracking the network can get hold of the key , he can also decrypt the data and get the information
+
+
+Solution:
+
+In order to prevent this we can use assymetric encryption.
+
+Browesers use DHE_RSA algo to ecncrypt data.

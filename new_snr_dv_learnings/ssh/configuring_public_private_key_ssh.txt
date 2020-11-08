@@ -1,0 +1,80 @@
+
+
+---------- How to configure assmertic encryption(public/private) key with host ------------------
+
+it is also known as RSA setup
+
+we need to follow below steps to acheive the same:
+
+Step 1 : If you are using windows open powershell , and navigate to user location using cd command
+
+for example: "c:/users/kaman"  kaman is the user 
+
+Step 2 : look for .ssh folders, (here . represents hidden folder), in case hidden folders are disabled ,please navigate to folder and enable hidden folders , in case .ssh folder is not there then you 
+
+Step 3 : access the folder in pover shell/ ssh terminal , and generate public and private key using ssh-keygen command ,
+
+note: in order for ssh to work correctly you  need to ensure two services are enabled and running in windows machine
+
+					OpenSSH Authentication Agent
+					OpenSSH Server
+
+ for this you can go to services.msc and enable and start these services.
+ 
+ Step 4: once these services are started , go to power shell terminal and run below command to create public and private key
+			
+						ssh-keygen -C "test@gmail.com"  // -C is for comment
+
+	you will be asked whee you want to save this file , so provide the location for example : /users/kaman/.ssh/id_rsa/digital_ocean
+
+	you will be asked for password for extra security ,you can leave it blank and hit enter for now.
+	and your key will be generated.
+
+note: there are variety of options/recommendations we can use with keygen to generate key , we are using simplest possible option
+
+ Step 5: now you will notice two files are created 
+	
+		id_rsa_digitalocean // private key
+		id_rsa_digitalocean.pub // public keygen
+		
+  as we know public key can be shared and host using this public key will encrypt the message and who so ever is having the private key, can only
+  decrypt the message. 
+  
+  there fore, we will copy the public key which will put in host machine for authentication in future steps.
+  
+ Step 6: Now we will go to power shell and access the host machine is normal ssh way by providing password and look for .ssh folder there.
+ 
+		we can run ls -a command which will list hidden files
+		
+ Step 7: now we can acess the .ssh directory using ls and we will find authorized_keys file in there , we can open this file using
+		
+			nano authorized_keys 
+			
+	we can paste our public key here and hit (^X -- ctrl/cmd X) to exit.
+    and exit out of machine
+
+Step 8: now in order to access remote machine using RSA we need to add private key in out local machine , for that we need to access .ssh folder where
+        our private key is present and run below command
+		
+		 ssh-add << your private key file name >>
+		 example : ssh-add id_rsa_digitalocean
+		 
+		 you will see message id is successfully added. 
+		 
+		 
+Step 9: Now yout RSA is setup and you can use ssh << host ip adress >> to directly access machine
+
+
+ ------------ How does server identifies if client is secure / how client ensures secure pipeline ----------------------------
+	Server sends a problem to client encrypted with public key, only client which has private key can decrypt it , so one the solution is sent by client
+	host compares the key and if solution is righjt, secure connection is ensured
+	
+
+		 
+		
+		
+	
+	
+
+
+

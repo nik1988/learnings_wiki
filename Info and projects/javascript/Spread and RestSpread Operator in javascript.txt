@@ -1,0 +1,65 @@
+
+
+ ----------------------- Spread Operator (...) in javascript -----------------------------
+
+ -- Spread Operator was introduced in ES6
+ -- It can be used with any iterable element for example arrays and for copying and destructuring objects.
+  
+	example:
+
+	function addThreeNumbers(a,b,c){
+		return a + b + c;
+	}	
+
+	
+	let samepleArray = [1,2,3];
+
+	console.log((addThreeNumbers(...sampleArray)); // spread operator will break the array into single items and pass it to the method.
+
+
+
+
+	This operator is also usefull in finding max and min in array as shown in below example:
+
+	const sampleArr = [1, 9, 17, -3, 7, 89, 40, 100, 121, 8];
+	const maxValue = Math.max(...sampleArr);
+	const minValue = Math.min(...sampleArr);
+	console.log(maxValue); //121
+	console.log(minValue); //-3
+
+
+
+ ----------- Spread operator can be used to perform shallow copy of objects as well --------------------------
+
+	example:
+
+	let obj1 = {a:1,b:2,c:3};
+	let obj2 = {d:4,e:5,f:6};
+
+
+	let obj3 = {...obj1,...obj2};
+
+	console.log(obj1,obj2); // a:1,b:2,c:3,d:4,e:5,f:6
+
+
+---------- Usage of spread operator for destructuring ---------------------
+
+we can use spread operator for destructuring as well , example:
+
+	examle if we array like 
+
+	let sampleArray = [1,2,3,4];
+
+	if we do [x,y] = sampleArray;
+
+	console.log(x); // 1
+	console.log(y); // 2
+
+    	but what if we want rest of the remaining elements to be storssed in some other array we can use spread operator:
+	example:
+	
+	[x,y,...restArray] = [1,2,3,4];
+	console.log(restArray) ; // 3,4
+
+
+

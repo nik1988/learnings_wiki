@@ -1,0 +1,66 @@
+-- we can run node terminal by simlpy running node command in cmd and executing this command opens the node
+terminal.
+
+once this terminal is opened we can run java script code as usual.
+
+
+-- node doesnot have a window object which is parent object in java script instead it has a object global which provide bunch of method to perform tasks.
+-- node also doesnot have a document object.
+-- node has a process object which indicates current process running inside a terminal. if we do process.exit() we will come out of node terminal.
+
+
+
+----------------- running a java script file inside a node terminal -------------------------
+
+when we simply want to run the js file in terminal we must give : require('./<<filename>') // where ./ indicates the current folder , in case file is located some place please provide the complete path.
+example:
+
+require('./script.js')
+
+--------- running js file outside the terminal -----------------
+
+we can simply open the cmd where file is located and execute : node <<filename>>.js
+
+example: node script.js
+
+
+-------- exporting modules in node js ----------------
+
+currently node js doesnot support Javascript ES6 as we see when we use import and export in react ,so it uses common.js to support module import and export.
+
+example:
+
+lets say we have script1.js file which contains and some common large number:
+
+script1.js
+
+
+const commonLargeNumber = 3650;
+
+module.exports =  {largeNumber:commonLargeNumber};  // export it to make it possible to be included in other modules.
+
+
+----------------- Now script2.js can include exported module as below in node --------------------
+
+
+const exportedNumber = require('./script1.js');
+
+const a = exportedNumber.largeNumber;
+const b = 5;
+
+console.log(a + b);
+
+
+
+-------------- different moudles in node js ------------------
+
+other kind of module in node js is existing modules.
+
+example of existing modules are : http,fs etc
+
+
+we can import existing modules as : const c = require('fs');
+
+
+
+

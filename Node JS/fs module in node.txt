@@ -1,0 +1,28 @@
+
+
+----------------- fs module in node is used to read write and delete from files-----
+
+followig are the methods supported by file system module:
+
+readFile -- reads the file from given path
+readFileSync -- reads the file synchronously from given path
+appendFile -- update the file with data, if files not present creates the file.
+writeFile -- write the file to given path.
+unLink -- delete the file from given path.
+
+example:
+const fs = require('fs');
+
+fs.readFile('./hello.txt',(err,data) => {
+	if(err){
+		console.log('errrr');
+	}
+
+	console.log(data.toString()); //need to convert data to string other wise data will be in hexa format
+});
+
+//sync calls
+const file = fs.readFileSync('./hello.txt');
+console.log('readFileSync',file.toString());
+
+----------- please refer to script.js in node_fs_mode-project for more examples----------------

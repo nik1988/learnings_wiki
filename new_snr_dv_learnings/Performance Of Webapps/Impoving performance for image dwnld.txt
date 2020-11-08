@@ -1,0 +1,91 @@
+
+While we are attaching images to our website we must ensure we dont realy attach higher resolution images as they more size and require more time to download.
+
+There are basically four types of images
+
+-- JPEG --- Images which has more colors and cosume more space
+-- GIF  -- Animated images
+-- PNG -- Less colous consume less space and can make the background transparent
+-- SVG (Scalable Vector Graphics)  -- Images created with vector graphics, less space, better quality , currently the best format of images to be linked with webappp (Usally used for graphs, charts, logos )
+		Every format has its own use case and it can be best found in:
+			
+			https://www.sitepoint.com/gif-png-jpg-which-one-to-use/
+
+
+ How can we reduce the size of images ?
+ 
+ we can use various resources avaialble online to optimize the images, for example :
+	
+	TinyPng.com
+	JPEGA Optimizer 
+	etc 
+	
+Some points to consider while working with images :
+
+-- Select Image format as per use case
+-- Reduce the size of images using online resources as TinyPng etc
+-- Always lower the image quality as it reduces the size.
+-- Resize image based on size it will be displayed
+  
+  Explaination
+  
+  We must ensure that if we are giving the width of image as 500px in css we should not add a image of resolution more than 500px because there is no point
+  of storing image of larger width in server if we are not rendering the same, hence we can reduce the resolution of image as per need thus reducing the size.
+
+-- Display Different sized images for different backgrounds (meaning for large screen and small screens)
+
+	we can use media query to point to images of different size and browser will request the image according to widhth of device screen from which request was made : 
+	
+	example css
+	
+	@media screen and (min-width:900 px)  
+	body {
+		background: url(./large-background.jpg') no repeat center center fixed;
+		background-size:cover;
+	}
+	
+	@media screen and (max-width: 500px) 
+	body {
+		background: url(./small-background.jpg) no repeat center center fixed;
+		background-size:cover;
+	}
+	
+note : In Media query screen is used for screen size and print is used for print screen
+
+Above css code tells browser to look for large background resource if screen is bigger than 900px and look for small background resource if screen is smaller than 500px.
+
+automatically based on screen size request is made for example if screen size is less than 500px then request for small-backround.jpg will be made not for large one hence for small screens we improve the performance for network latency and image load by doing this since the request for lesser size image is made
+as large size image is not needed for small screen.
+
+
+-- USe CDN like imgix
+
+imgix is one the examples from varios CDN websites available, what we can do is instead of uploading images to server we can upload all the images to these CDN websites and these will give the cdn url for each image which we can place in url for image tag, advantage of this is cdn websites returns the best and reduced format of images available and provided faster download.
+
+
+-- Remove the metadata from Image (Security)
+
+ when ever we take a photograph from device , meta data information is stored for that image such as
+    -- location where it was taken
+	-- device from which it was taken
+	-- date and time
+	-- Gps cords
+
+Any one can download these images and get information pn the user, plus our webapp doesnt need this information can we can save 3-4kbs by removing them
+
+	-- we can view and delete meta data from user images from one of the example websites below:
+	
+		www.verexif.com
+	
+Using this website once we upload image and remove exif we will get new image - metadata and if we compare size with original image it will be less.	
+
+
+
+
+
+
+	
+  
+	
+ 
+ 
